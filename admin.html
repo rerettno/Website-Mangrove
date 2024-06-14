@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Peduli Mangrove</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+        <!--Navbar-->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="foto/Logo.png" alt="Logo">
+            </div>
+            <ul class="menu">
+                <li><a id="logoutBtn">LogOut</a></li>
+            </ul>
+        </nav>
+
+        <!--Kumpulan Informasi-->
+        <div id="informasi" class="kumpulan-informasi" >
+            <div class="container">
+                <h1 class="h1">Kumpulan Informasi</h1>
+                
+                <!-- Kontainer Box Informasi -->
+                <div class="container-kumpulan">
+                        
+                    <!-- Box Informasi 1 -->
+                    <div class="box-kumpulan">
+                        <div class="identitas">
+                            <img src="foto/user.png" alt="User Foto">
+                            <div class="data-user">
+                                <p class="nama">ANANANANANANAkAAAA</p>
+                                <p class="tanggal">Tanggal 1</p>
+                            </div>
+                            <button class="hapus"></button>
+                        </div>
+                        <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
+                    </div>
+
+        </div>
+        <script>
+            // Temukan tombol logout berdasarkan id
+            var logoutButton = document.getElementById('logoutBtn');
+        
+            // Tambahkan event listener untuk menangani klik tombol logout
+            logoutButton.addEventListener('click', function() {
+                // Arahkan pengguna ke halaman login (ganti "halaman-login.html" dengan path yang sesuai)
+                window.location.href = "login.html";
+            });
+        </script>
+        
+    
+        <script src="script.js"></script>
+</body>
+</html>

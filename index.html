@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peduli Mangrove</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+    <!--Navbar-->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="foto/Logo.png" alt="Logo">
+        </div>
+        <ul class="menu">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#program">Program</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#donasi">Donasi</a></li>
+            <li><a href="#tentang-kami">Tentang Kami</a></li>
+        </ul>
+    </nav>
+
+
+    <!--Beranda-->
+    <div id="beranda" class="header">
+        <div class="header-content">
+            <div class="header-left animate-on-scroll from-left">
+                <h1 class="judul">Ayo Wujudkan <span>Mangrove</span> Indonesia Menjadi Lebih Baik!</h1>
+                <p class="caption">Dukung misi kami untuk menyelamatkan mangrove di Indonesia</p>
+                <button class="btn-donasi" id="data-relawan" onclick="scrollToDonasi()">Donasi Sekarang</button>
+            </div>
+            <div class="header-right animate-on-scroll from-right">
+                <img src="foto/beranda.png" alt="Mangrove Image">
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div class="data-relawan">
+        <div class="container">
+            <h2>Masyarakat <span>#Peduli</span></h2>
+            <div class="relawan">
+                <img src="foto/people.png" alt="Mangrove Image">
+                <div class="info">
+                    <h3>2500</h3>
+                    <p>Relawan </p>
+                </div>
+                <img src="foto/pohon.png" alt="Mangrove Image">
+                <div class="info">
+                    <h3>2.50000000</h3>
+                    <p>Pohon Telah Terkumpul </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="komentar" class="komentar">
+        <div class="container">
+            <h1>Mari Dengarkan</h1>
+            <h2>Apa Kata Mereka ?</h2>
+            <div class="testimoni">
+                <div class="item">
+                    <p>276 huruf</p>
+                    <div class="data">
+                        <img src="foto/user.png" alt="Foto testimoni">
+                        <div class="info">
+                            <p><strong>min 18 hruf</strong></p>
+                            <p class="jml-donasi">Mendonasikan <span>30</span> Pohon</p>
+                            <p class="tanggal">20 Mei 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>"Edukasi tentang mangrove yang diberikan oleh Peduli Mangrove sangat bermanfaat. Saya jadi lebih memahami pentingnya menjaga ekosistem mangrove."</p>
+                    <div class="data">
+                        <img src="foto/user.png" alt="Foto testimoni">
+                        <div class="info">
+                            <p><strong>Budi, Bandung</strong></p>
+                            <p class="jml-donasi">Mendonasikan <span>30</span> Pohon</p>
+                            <p class="tanggal">18 Mei 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>"Saya sangat terkesan dengan upaya Peduli Mangrove dalam menjaga kelestarian lingkungan. Semoga semakin banyak orang yang peduli dan ikut mendukung."</p>
+                    <div class="data">
+                        <img src="foto/user.png" alt="Foto testimoni">
+                        <div class="info">
+                            <p><strong>Citra, Jakarta</strong></p>
+                            <p class="jml-donasi">Mendonasikan <span>30</span> Pohon</p>
+                            <p class="tanggal">15 Mei 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>"Pengalaman menjadi relawan bersama Peduli Mangrove sungguh luar biasa. Saya merasa berkontribusi nyata dalam menjaga kelestarian alam."</p>
+                    <div class="data">
+                        <img src="foto/user.png" alt="Foto testimoni">
+                        <div class="info">
+                            <p><strong>Dewi, Surabaya</strong></p>
+                            <p class="jml-donasi">Mendonasikan <span>30</span> Pohon</p>
+                            <p class="tanggal">12 Mei 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>"Melalui kegiatan yang diadakan oleh Peduli Mangrove, saya belajar banyak tentang pentingnya mangrove dalam menjaga keseimbangan ekosistem."</p>
+                    <div class="data">
+                        <img src="foto/user.png" alt="Foto testimoni">
+                        <div class="info">
+                            <p><strong>Eka, Yogyakarta</strong></p>
+                            <p class="jml-donasi" >Mendonasikan <span >09 </span> Pohon</p>
+                            <p class="tanggal">10 Mei 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>"Melalui kegiatan yang diadakan oleh Peduli Mangrove, saya belajar banyak tentang pentingnya mangrove dalam menjaga keseimbangan ekosistem."</p>
+                    <div class="data">
+                        <img src="foto/user.png" alt="Foto testimoni">
+                        <div class="info">
+                            <p><strong>Eka, Yogyakarta</strong></p>
+                            <p class="jml-donasi" >Mendonasikan <span >09 </span> Pohon</p>
+                            <p class="tanggal">10 Mei 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>"Melalui kegiatan yang diadakan oleh Peduli Mangrove, saya belajar banyak tentang pentingnya mangrove dalam menjaga keseimbangan ekosistem."</p>
+                    <div class="data">
+                        <img src="foto/user.png" alt="Foto testimoni">
+                        <div class="info">
+                            <p><strong>Eka, Yogyakarta</strong></p>
+                            <p class="jml-donasi" >Mendonasikan <span >09 </span> Pohon</p>
+                            <p class="tanggal">10 Mei 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!--Program-->
+    <div id="program" class="program">
+        <div class="container">
+            <h1 class="h1">Program Kami</h1>
+            <h2 class="h2">Bersama Kami Mewujudkan Mangrove Indonesia Menjadi Lebih Baik</h2>
+            <div class="program-1">
+                <img src="foto/program1.png" alt="Informasi 1 Foto">
+                <div class="text">
+                    <p class="judul">Penyaluran Bantuan Mangrove</p>
+                    <p class="keterangan">Salah satu kegiatan relawan di Jakarta telah melakukan penyaluran bantuan penanaman bibit mangrove yang dilakukan dari hasil donatur para relawan lain yang telah berdonasi.Kegiatan ini diikuti oleh 100 orang yang berpartisipasi langsung dalam menanam bibit mangrove
+                        di wilayah Jakarta.</p>
+                </div>
+            </div>
+            <div class="program-2">
+                <div class="text">
+                    <p class="judul">Penanaman Bibit Mangrove</p>
+                    <p class="keterangan">Relawan dari Kalimantan Barat melakukan aksi penanaman bibit mangrove .Penanam bibit ini dilakukan oleh 250 orang dengan menanam bibit sekitar 2000 bibit Mangrove.</p>
+                </div>
+                <img src="foto/program2.jpg" alt="Informasi 2 Foto">
+            </div>
+        </div>
+    </div>
+    
+    <!--Informasi-->
+    <div id="informasi" class="informasi" >
+        <div class="container">
+            <h1 class="h1">Bantu Kami</h1>
+            <h2 class="h2">Mari Temukan Mangrove !!</h2>
+            
+            <!-- Kontainer Box Informasi -->
+            <div class="box-container">
+                <!-- Panah Kiri -->
+                <div class="arrow-wrapper left">
+                    <img src="foto/left.png" class="arrow-left" alt="Left Arrow">
+                </div>
+                <!-- Panah Kanan -->
+                <div class="arrow-wrapper right">
+                    <img src="foto/right.png" class="arrow-right" alt="Right Arrow">
+                </div>
+                
+                     
+                <!-- Box Informasi 1 -->
+                <div class="box">
+                    <div class="identitas">
+                        <img src="foto/user.png" alt="User Foto">
+                        <div class="data-user">
+                            <p class="nama">ANANANANANANAkAAAA</p>
+                            <p class="tanggal">Tanggal 1</p>
+                        </div>
+                    </div>
+                    <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
+                </div>
+                <!-- Box Informasi 2 -->
+                <div class="box">
+                    <div class="identitas">
+                        <img src="foto/user.png" alt="User Foto">
+                        <div class="data-user">
+                            <p class="nama">Nama User 2</p>
+                            <p class="tanggal">Tanggal 2</p>
+                        </div>
+                    </div>
+                    <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
+                </div>
+                <!-- Box Informasi 3 -->
+                <div class="box">
+                    <div class="identitas">
+                        <img src="foto/user.png" alt="User Foto">
+                        <div class="data-user">
+                            <p class="nama">Nama User 3</p>
+                            <p class="tanggal">Tanggal 3</p>
+                        </div>
+                    </div>
+                    <p class="detail">Komentar dari user 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Komentar dari user 3. Lorem ipsum dolor sit amet, consectetur adipiscing elitKomentar dari user 3. Lorem ipsum dolor sit amet, consectetur adipiscing elitKomentar dari user 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+                <!-- Box Informasi 4 -->
+                <div class="box">
+                    <div class="identitas">
+                        <img src="foto/user.png" alt="User Foto">
+                        <div class="data-user">
+                            <p class="nama">Nama User 4</p>
+                            <p class="tanggal">Tanggal 4</p>
+                        </div>
+                    </div>
+                    <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
+                </div>
+                <!-- Box Informasi 5 -->
+                <div class="box">
+                    <div class="identitas">
+                        <img src="foto/user.png" alt="User Foto">
+                        <div class="data-user">
+                            <p class="nama"> p inpo</p>
+                            <p class="tanggal">Tanggal</p>
+                        </div>
+                    </div>
+                    <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
+                </div>
+                <div class="box">
+                    <div class="identitas">
+                        <img src="foto/user.png" alt="User Foto">
+                        <div class="data-user">
+                            <p class="nama"> p inpo</p>
+                            <p class="tanggal">Tanggal</p>
+                        </div>
+                    </div>
+                    <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
+                </div>
+                <div class="box">
+                    <div class="identitas">
+                        <img src="foto/user.png" alt="User Foto">
+                        <div class="data-user">
+                            <p class="nama"> p inpo</p>
+                            <p class="tanggal">Tanggal</p>
+                        </div>
+                    </div>
+                    <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
+                </div>
+            </div>
+
+
+            <!-- Popup Detail -->
+            <div class="popup-overlay popup-overlay-detail"></div>
+            <div class="popup-detail">
+                <div class="full-detail"></div>
+            </div>
+
+            <button class="btn-informasi">Salurkan Informasimu</button>
+        </div>
+    </div>
+    
+    <!-- Popup Form Informasi -->
+    <div class="popup-overlay popup-overlay-form"></div>
+    <div class="popup-informasi">
+        <span class="popup-close popup-close-form">&times;</span>
+        
+        <h2>Salurkan Informasimu</h2>
+        <h1>Berikan Informasi Mengenai Mangrove di Wilayah Indonesia</h1>
+
+        <div class="popup-content">
+            <div class="popup-left">
+                <form id="popup-form">
+                    <div class="form-group">
+                        <label for="nama">Nama:</label>
+                        <input type="text" id="isi-nama" name="nama" required placeholder="Masukan Nama" maxlength="18">
+                        <span id="warning" class="warning">* Inputan sudah melebihi batas karakter</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="provinsi">Provinsi:</label>
+                        <input type="text" id="isi-provinsi" name="provinsi" required placeholder="Masukkan Provinsi">
+                    </div>
+                    <div class="form-group">
+                        <label for="kota">Kota/Kabupaten:</label>
+                        <input type="text" id="isi-kota" name="kota" required placeholder="Masukkan Kota/Kabupaten">
+                    </div>
+                    <div class="form-group">
+                        <label for="detail">Detail:</label>
+                        <textarea id="isi-detail" name="detail" rows="5" required placeholder="Masukkan Detail"></textarea>
+                    </div>
+                </form>
+            </div>
+        
+            <div class="popup-right">
+                <div class="preview">
+                    <div class="identitas">
+                        <img src="foto/user.png" alt="User Foto">
+                        <div class="data-user">
+                            <p class="nama" id="preview-nama"></p>
+                            <p class="tanggal" id="preview-tanggal"></p>
+                        </div>
+                    </div>
+                    <p class="full-detail" id="preview-detail">Pada lokasi mangrove di <span id="preview-kota"></span> <span id="preview-provinsi"></span>, <span id="preview-text"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-kirim" onclick="validateForm()">Kirim</button>
+    </div>        
+    
+    <!-- Popup kirim -->
+    <div class="popup-overlay popup-overlay-kirim"></div>
+    <div class="popup-kirim">
+        <img src="foto/kirim.png" alt="berhasil">
+        <h2>Informasi sedang diproses ...</h2>
+    </div>
+
+    <!-- Popup terima -->
+    <div class="popup-overlay popup-overlay-terima"></div>
+    <div class="popup-terima">
+        <img src="foto/terima.png" alt="berhasil">
+        <h2>Informasi telah diterima</h2>
+    </div>
+
+
+    <!--Blog-->
+    <div id="blog" class="blog">
+        <h1>Blog Kami</h1>
+        <h2>Mari Ikuti Keseruan Kami</h2>
+        
+        <div class="blog-post">
+            <img src="foto/blog.png" alt="Berita 1">
+            <div class="keterangan">
+                <p class="berita">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ultrices arcu, sit amet vehicula massa.</p>
+                <p class="tanggal">1 Januari 2024</p>
+            </div>
+        </div>
+
+        <div class="blog-post">
+            <img src="foto/blog.png" alt="Berita 2">
+            <div class="keterangan">
+                <p class="berita">Curabitur quis lacus nec metus tincidunt vehicula. Integer dapibus nisl nec neque cursus, a tempor massa scelerisque.</p>
+                <p class="tanggal">2 Januari 2024</p>
+            </div>
+        </div>
+
+        <div class="blog-post">
+            <img src="foto/blog.png" alt="Berita 3">
+            <div class="keterangan">
+                <p class="berita">Sed hendrerit, ligula ac aliquet fermentum, nunc dui pharetra ligula, at hendrerit metus elit et nisi.</p>
+                <p class="tanggal">3 Januari 2024</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Donasi-->
+    <div id="donasi" class="donasi">
+        <div class="donasi-header">
+            <div class="donasi-text">
+                <h1>Mari Berdonasi</h1>
+                <h2>Bantu Manggrove Indonesia</h2> 
+                <h2>Menjadi Lebih Baik!</h2>
+            </div>
+            <img src="foto/donasi.png" alt="Donasi" class="donasi-img">
+        </div>
+    
+        <div class="form-donasi" id="popup-form-donasi">
+            <h3>Donasi Cepat</h3>
+    
+            <div class="harga-bundling">
+                <button class="bundling">1 Pohon = Rp 7.000,00</button>
+                <button class="bundling">5 Pohon = Rp 30.000,00</button>
+                <button class="bundling">10 Pohon = Rp 50.000,00</button>
+                <button class="bundling">50 Pohon = Rp 300.000,00</button>
+            </div>
+            <div class="warning-message">Silakan pilih salah satu bundling sebelum melanjutkan.</div>
+            
+    
+            <p class="note">Donasi yang anda berikan sudah termasuk dari 5% potongan untuk biaya operasional dan pengembangan dari peduli mangrove.</p>
+    
+            <div class="form-group">
+                <label for="nama">Nama</label>
+                <input type="text" id="dns-nama" name="nama" placeholder="Masukkan Nama" maxlength="24">
+                <span id="warning-nama" class="warning">* Inputan sudah melebihi batas karakter</span>
+            </div>
+            
+            <div class="horizontal-group">
+                <input type="checkbox" id="anonim" name="anonim">
+                <label for="anonim">Lewati kolom ini sebagai Anonim</label>
+            </div>
+            
+            <div class="form-group">
+                <label for="isi-komentar">Isi Komentar</label>
+                <textarea id="dns-komentar" name="komentar" placeholder="Masukkan Komentar Anda" maxlength="276"></textarea>
+                <span id="warning-komentar" class="warning">* Inputan sudah melebihi batas karakter</span>
+            </div>
+    
+            <button class="btn-submit">Donasi Sekarang</button>
+        </div>
+    </div>
+    
+
+    
+    <!-- Popup Pembayaran -->
+    <div class="popup-overlay popup-overlay-pembayaran"></div>
+    <div class="popup-pembayaran">
+        <h2>Ingin Melanjutkan Pembayaran ?</h2>
+        <h1>Silahkan Scan Barcode Di Bawah Ini!!</h1>
+
+        <img src="foto/barcode.png" alt="barcode">
+
+        <div class="button-container">
+            <button class="btn-tidak">Tidak</button>
+            <button class="btn-iya">Iya</button>
+        </div>
+    </div>
+
+    <!-- Popup transfer -->
+    <div class="popup-overlay popup-overlay-transfer"></div>
+    <div class="popup-transfer">
+        <img src="foto/transfer.png" alt="berhasil">
+        <h2>Pembayaran sedang di proses...</h2>
+
+    </div>
+    
+    <!-- Popup Berhasil -->
+    <div class="popup-overlay popup-overlay-berhasil"></div>
+    <div class="popup-berhasil">
+        <img src="foto/done.png" alt="berhasil">
+        <h2>Pembayaran Berhasil!</h2>
+        <h1>Terima Kasih, Masyarakat <span>#Peduli</span></h1>
+        <h1>Donasi Anda telah kami terima</h1>
+
+        <script>
+            //-------Animasi popup berhasil
+            function showPopup() {
+                const popup = document.getElementById('popupBerhasil');
+                popup.style.display = 'flex';
+                setTimeout(() => {
+                    popup.style.opacity = 1;
+                }, 10); // Adding a slight delay to allow transition to take effect
+            }
+            
+            // Optional: You can add a function to hide the popup if needed
+            function hidePopup() {
+                const popup = document.getElementById('popupBerhasil');
+                popup.style.opacity = 0;
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500); // Delay to match the CSS transition duration
+            }
+            
+        </script>
+    </div>
+
+
+    <!--Tentang Kami-->
+    <div id="tentang-kami" class="tentang-kami">
+        <div class="container">
+            <h1 class="h1">Tentang Kami</h1>
+            <h2 class="h2">Kelazzzzzzzzzzzzzz!!</h2>
+                <div class ="card">
+                    <div class="card card-judul">
+                        <h3>K4 CC MojadiApp</h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="card card2">
+                            <div class="card-header">
+                                <h3>Siddiq</h3>
+                                <p>BackEnd</p>
+                            </div>
+                            <img src="foto/foto.png" alt="foto">
+                        </div>
+                        <div class="card card3">
+                            <div class="card-header">
+                                <h3>Fadli</h3>
+                                <p>Coud Configuration</p>
+                            </div>
+                            <img src="foto/foto.png" alt="foto">
+                        </div>
+                        <div class="card card1">
+                            <div class="card-header">
+                                <h3>Hapsari Retno P</h3>
+                                <p>PM Kelp 4</p>
+                            </div>
+                            <img src="foto/foto.png" alt="foto">
+                        </div>
+                        <div class="card card4">
+                            <div class="card-header">
+                                <h3>Nesya</h3>
+                                <p>Card Nesya</p>
+                            </div>
+                            <img src="foto/foto.png" alt="foto">
+                        </div>
+                        <div class="card card5">
+                            <div class="card-header">
+                                <h3>Michael</h3>
+                                <p>Card Michael</p>
+                            </div>
+                            <img src="foto/foto.png" alt="foto">
+                        </div>
+                        <div class="card card6">
+                            <div class="card-header">
+                                <h3>Ekel</h3>
+                                <p>Card Ekel</p>
+                            </div>
+                            <img src="foto/foto.png" alt="foto">
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="footer">
+        <div class="atas">
+            <div class="kontak-kami">
+                <p class="judul">Kontak Kami</p>
+
+                <div class="email">
+                    <img src="foto/email.png" alt="email">
+                    <p>k4CCMojadiapp@mail.com</p>
+                </div>
+
+                <div class="telepon">
+                    <img src="foto/telepon.png" alt="telepon">
+                    <p>(+62) 8123 4567 8908</p>
+                </div>
+
+                <div class="alamat">
+                    <img src="foto/alamat.png" alt="alamat">
+                    <p>Jl. 1234567890, Indonesia</p>
+                </div>
+            </div>
+            <div class="sosial-media">
+                <p class="judul">Sosial Media</p>
+                
+                <img src="foto/facebook.png" alt="facebook">
+                
+                <img src="foto/instagram.png" alt="instagram">
+                
+                <img src="foto/twitter.png" alt="twitter">
+                <img src="foto/youtube.png" alt="youtube">
+
+            </div>
+        </div>
+        <div class="bawah">
+            <p>Copyright© 2024Peduli Mangrove. All rights reserved</p>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
