@@ -100,36 +100,8 @@ btnDonasi.addEventListener('mouseleave', function() {
 # Komentar
 --------------------------------------------------------------*/
 //notes, dibagian ini hanya dibuat animasi untuk komentar
-document.addEventListener("DOMContentLoaded", function() {
 
-    // Fungsi untuk scroll otomatis
-    const testimoniContainer = document.querySelector('.testimoni');
-    const comments = document.querySelectorAll('.testimoni .item');
-    let index = 0;
 
-    function updateComments() {
-        comments.forEach((comment, i) => {
-            if (i !== index) {
-                comment.classList.add('small');
-            } else {
-                comment.classList.remove('small');
-            }
-        });
-    }
-
-    function scrollComments() {
-        index = (index + 1) % comments.length;
-        const itemWidth = comments[index].offsetWidth; // Lebar item saat ini
-        testimoniContainer.scrollTo({
-            left: index * itemWidth,
-            behavior: 'smooth'
-        });
-        updateComments();
-    }
-
-    setInterval(scrollComments, 4000);
-    updateComments();
-});
 
 //js fitur menampilkan pesan dari donasi
     document.addEventListener('DOMContentLoaded', function() {
@@ -194,13 +166,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             })
             .catch(error => console.error('Terjadi kesalahan:', error));
-    });
+ 
 
     // Fungsi untuk animasi komentar
     function runCommentAnimation() {
+    // Fungsi untuk scroll otomatis
         const comments = document.querySelectorAll('.testimoni .item');
         let index = 0;
-    
+
         function updateComments() {
             comments.forEach((comment, i) => {
                 comment.classList.remove('small');
@@ -209,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         }
-    
+
         function scrollComments() {
             index = (index + 1) % comments.length;
             const container = document.querySelector('.testimoni');
@@ -221,20 +194,20 @@ document.addEventListener("DOMContentLoaded", function() {
             });
             updateComments();
         }
-    
-        // Inisialisasi scroll dengan item pertama di tengah
+
+        // Geser ke posisi awal dengan item pertama di tengah
         function initScroll() {
             const container = document.querySelector('.testimoni');
             const itemWidth = comments[0].clientWidth;
             const offset = (container.clientWidth - itemWidth) / 2;
-            container.scrollLeft = offset; // Geser ke posisi awal dengan item pertama di tengah
+            container.scrollLeft = -offset;
         }
-    
+
         initScroll();
         setInterval(scrollComments, 3000);
         updateComments();
     }
-
+});
 /*--------------------------------------------------------------
 # Program
 --------------------------------------------------------------*/
