@@ -53,6 +53,7 @@ a {
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
     height: 75px;
     background-color: var(--hijau-tua);
     display: flex;
@@ -63,7 +64,10 @@ a {
     box-shadow: 0px 1px 4px #3f473f; /* Menambahkan drop shadow */
     transition: top 1s ease; /* Menambahkan efek transisi */
 }
-
+.navbar .logo{
+    display: flex; /* Memastikan elemen anak diratakan secara vertikal */
+    align-items: center; /* Memastikan logo berada di tengah vertikal */
+}
 .navbar .logo img {
     height: 40px;
 }
@@ -109,6 +113,12 @@ a {
     animation: dropFromTop 2s ease forwards;
 }
 
+.navbar .menu-icon {
+    display: none;
+    font-size: 30px;
+    color: var(--putih);
+    cursor: pointer;
+}
 
 
 /*--------------------------------------------------------------
@@ -116,25 +126,25 @@ a {
 --------------------------------------------------------------*/
 .header {
     background-color: var(--hijau-tua);
-    height: fit-content;
     width: 100%;
     display: flex;
     align-items: center;
     padding-top: 75px;
+    box-sizing: border-box; /* Memastikan padding dihitung dalam lebar elemen */
 }
 
 .header-content {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 30px 150px;/*max kontentnya*/
+    padding: 30px 150px; /* Padding besar untuk ukuran biasa */
     padding-bottom: 100px;
+    box-sizing: border-box; /* Memastikan padding dihitung dalam lebar elemen */
 }
 
 .header-left {
     flex: 1;
     color: var(--putih);
-    font-size: 12px;
 }
 
 .header-right {
@@ -143,7 +153,9 @@ a {
     justify-content: flex-end;
     align-items: center;
     padding: 0 50px;
+    box-sizing: border-box; /* Memastikan padding dihitung dalam lebar elemen */
 }
+
 
 .judul {
     font-family: 'judul';
@@ -435,7 +447,7 @@ a {
 
 .program-1,
 .program-2 {
-    height: 250px;
+    max-height: 250px;
     padding: 30px;
     background-color: var(--hijau-tua);
     display: flex;
@@ -592,8 +604,8 @@ a {
 }
 
 .identitas img {
-    width: 5vw; /* Tetapkan lebar gambar sebagai 15% dari lebar viewport */
-    max-width: 50px; /* Maksimal lebar gambar */
+    width: 4vw; /* Tetapkan lebar gambar sebagai 15% dari lebar viewport */
+    max-width: 45px; /* Maksimal lebar gambar */
     height: auto; /* Menjaga rasio aspek */
     border-radius: 50%;
     border: 2px solid var(--hijau-tua);
@@ -671,7 +683,7 @@ a {
     font-weight: 600;
     color: var(--hijau-muda); /* Menggunakan variabel hijau tua */
     cursor: pointer;
-    font-size: 14px;
+    font-size: 1vw;
     display: inline;
 }
 
@@ -1536,7 +1548,7 @@ a {
     }
     }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1025px) {
 
 .header {
     padding-top: 65px;
@@ -1626,10 +1638,10 @@ a {
     padding-bottom: 50px;
 }
 .box {
-    flex: 0 0 300px; /* Lebar setiap box */
-    height: 180px; /* Tinggi setiap box */
-    margin-right: 20px; 
-    padding: 20px;/* Memaksa teks untuk pindah ke baris baru jika terlalu panjang */
+    flex: 0 0 280px; /* Lebar setiap box */
+    height: 160px; /* Tinggi setiap box */
+    margin-right: 15px; 
+    padding: 15px;/* Memaksa teks untuk pindah ke baris baru jika terlalu panjang */
 }
 .btn-informasi {
     margin-top: 30px;
@@ -1772,6 +1784,122 @@ a {
 }
 
 
-@media screen and (max-width:425px){
-    
+
+
+@media screen and (max-width: 426px) {
+    .navbar {
+        padding: 0 10px;
+        height: 50px;
+        justify-content: space-between;
+    }
+    .navbar .logo img {
+        height: 20px;
+    }
+
+    .navbar .menu {
+        display: none; /* Menyembunyikan menu saat layar kecil */
+    }
+
+    .navbar .menu-icon {
+        display: block; /* Menampilkan ikon menu burger saat layar kecil */
+    }
+
+    /* Menampilkan menu saat toggle diaktifkan */
+    .navbar .menu.show {
+        display: flex;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: var(--hijau-tua);
+        padding: 10px 0;
+        box-shadow: 0px 1px 4px #3f473f;
+    }
+
+    .navbar .menu.show li {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 426px) {
+
+    .header-content {
+        padding: 10px 30px; /* Padding kecil untuk ukuran mobile */
+        padding-bottom: 50px;
+        flex-direction: column; /* Mengatur arah elemen menjadi kolom */
+        align-items: center; /* Mengatur elemen menjadi di tengah */
+        box-sizing: border-box; /* Memastikan padding dihitung dalam lebar elemen */
+    }
+
+    .header-left,
+    .header-right {
+        flex: none; /* Menghapus properti flex untuk elemen */
+        width: 100%; /* Lebar 100% untuk elemen di dalam header-content */
+        text-align: center; /* Mengatur teks menjadi di tengah */
+        padding: 0; /* Menghapus padding pada header-left dan header-right */
+    }
+
+    .header-right {
+        order: -1; /* Menempatkan gambar di atas konten lainnya */
+        justify-content: center; /* Mengatur gambar di tengah */
+    }
+
+    .header-right img {
+        width: 100%; /* Lebar gambar mengikuti lebar konten */
+        max-width: 150px; /* Lebar maksimum gambar */
+        height: auto; /* Tinggi gambar */
+        margin-bottom: 10px;
+        border: 5px solid var(--putih); /* Stroke putih di sekitar foto */
+    }
+
+    .judul {
+        font-size: 5vw; 
+        margin-bottom: 10px; /* Jarak antara judul dan caption */
+    }
+
+    .caption {
+        font-size: 2.5vw;
+        margin-bottom: 12px;
+    }
+
+    .btn-donasi {
+        padding: 10px 20px;
+        font-size: 2.5vw;
+    }
+
+    .data-relawan {
+        top: -25px; 
+    }
+    .data-relawan .container {
+        padding: 5px 10px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .data-relawan h2 {
+        display: none;
+    }
+
+    .data-relawan .info{
+        margin-left: 8px;
+        margin-right: 15px; 
+    }
+
+    .data-relawan .info h3 {
+        font-size: 4vw;
+    }
+
+    .data-relawan .info p {
+        font-size: 2vw;
+    }
+
+    .data-relawan img {
+        width: 20%; /* Lebar gambar */
+        max-width: 20px;
+        height: auto; /* Menjaga rasio aspek */
+        
+    }
 }

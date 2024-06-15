@@ -43,6 +43,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         lastScrollTop = currentScroll;
     });
+
+    function toggleMenu() {
+        var menu = document.querySelector('.navbar .menu');
+        menu.classList.toggle('show');
+    }
+    
 });
 
 /*--------------------------------------------------------------
