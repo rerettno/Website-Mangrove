@@ -200,31 +200,38 @@ document.addEventListener("DOMContentLoaded", function() {
     function runCommentAnimation() {
         const comments = document.querySelectorAll('.testimoni .item');
         let index = 0;
-        const container = document.querySelector('.testimoni');
-        const itemWidth = comments[0].offsetWidth;
-        const containerWidth = container.offsetWidth;
-
+    
         function updateComments() {
             comments.forEach((comment, i) => {
+                comment.classList.remove('small');
                 if (i !== index) {
                     comment.classList.add('small');
-                } else {
-                    comment.classList.remove('small');
                 }
             });
         }
-
+    
         function scrollComments() {
             index = (index + 1) % comments.length;
-            const scrollLeft = index * itemWidth;
+            const container = document.querySelector('.testimoni');
+            const itemWidth = comments[0].clientWidth; // Lebar satu item
+            const offset = (container.clientWidth - itemWidth) / 2; // Offset untuk item berada di tengah
             container.scrollTo({
-                left: scrollLeft,
+                left: index * itemWidth - offset,
                 behavior: 'smooth'
             });
             updateComments();
         }
-
-        setInterval(scrollComments, 4000);
+    
+        // Inisialisasi scroll dengan item pertama di tengah
+        function initScroll() {
+            const container = document.querySelector('.testimoni');
+            const itemWidth = comments[0].clientWidth;
+            const offset = (container.clientWidth - itemWidth) / 2;
+            container.scrollLeft = offset; // Geser ke posisi awal dengan item pertama di tengah
+        }
+    
+        initScroll();
+        setInterval(scrollComments, 3000);
         updateComments();
     }
 
