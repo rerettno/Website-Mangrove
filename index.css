@@ -329,6 +329,8 @@ a {
     overflow-x: auto; /* Scroll secara horizontal */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
     align-items: center; /* Pusatkan elemen secara vertikal */
+    overflow-y: auto; /* pastikan elemen ini bisa discroll vertikal */
+    scroll-behavior: smooth;
 }
 
 

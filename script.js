@@ -95,44 +95,132 @@ btnDonasi.addEventListener('mouseleave', function() {
 --------------------------------------------------------------*/
 //notes, dibagian ini hanya dibuat animasi untuk komentar
 document.addEventListener("DOMContentLoaded", function() {
+
     // Fungsi untuk scroll otomatis
+    const testimoniContainer = document.querySelector('.testimoni');
     const comments = document.querySelectorAll('.testimoni .item');
     let index = 0;
 
     function updateComments() {
         comments.forEach((comment, i) => {
-            comment.classList.remove('small');
             if (i !== index) {
                 comment.classList.add('small');
+            } else {
+                comment.classList.remove('small');
             }
         });
     }
 
     function scrollComments() {
         index = (index + 1) % comments.length;
-        const container = document.querySelector('.testimoni');
-        const itemWidth = comments[0].clientWidth; // Lebar satu item
-        const offset = (container.clientWidth - itemWidth) / 2; // Offset untuk item berada di tengah
-        container.scrollTo({
-            left: index * itemWidth - offset,
+        const itemWidth = comments[index].offsetWidth; // Lebar item saat ini
+        testimoniContainer.scrollTo({
+            left: index * itemWidth,
             behavior: 'smooth'
         });
         updateComments();
     }
 
-    // Geser ke posisi awal dengan item pertama di tengah
-    function initScroll() {
-        const container = document.querySelector('.testimoni');
-        const itemWidth = comments[0].clientWidth;
-        const offset = (container.clientWidth - itemWidth) / 2;
-        container.scrollLeft = -offset;
-    }
-
-    initScroll();
-    setInterval(scrollComments, 3000);
+    setInterval(scrollComments, 4000);
     updateComments();
 });
 
+//js fitur menampilkan pesan dari donasi
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('http://localhost:5000/getAllDonate')
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 200) {
+                    const testimonialsContainer = document.querySelector('.testimoni');
+                    
+                    // Urutkan data donasi berdasarkan createdAt secara descending
+                    data.donate.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+                    data.donate.forEach(donation => {
+                        const item = document.createElement('div');
+                        item.className = 'item';
+
+                        const pesan = document.createElement('p');
+                        pesan.textContent = `"${donation.pesan}"`;
+
+                        const dataDiv = document.createElement('div');
+                        dataDiv.className = 'data';
+
+                        const img = document.createElement('img');
+                        img.src = 'foto/user.png';
+                        img.alt = 'Foto testimoni';
+
+                        const infoDiv = document.createElement('div');
+                        infoDiv.className = 'info';
+
+                        const nama = document.createElement('p');
+                        nama.innerHTML = `<strong>${donation.nama}</strong>`;
+
+                        const jumlahDonasi = document.createElement('p');
+                        jumlahDonasi.className = 'jml-donasi';
+                        jumlahDonasi.innerHTML = `Mendonasikan <span>${donation.jumlah}</span> Pohon`;
+
+                        const tanggal = document.createElement('p');
+                        tanggal.className = 'tanggal';
+                        tanggal.textContent = new Date(donation.createdAt).toLocaleDateString('id-ID', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+
+                        infoDiv.appendChild(nama);
+                        infoDiv.appendChild(jumlahDonasi);
+                        infoDiv.appendChild(tanggal);
+
+                        dataDiv.appendChild(img);
+                        dataDiv.appendChild(infoDiv);
+
+                        item.appendChild(pesan);
+                        item.appendChild(dataDiv);
+
+                        testimonialsContainer.appendChild(item);
+                    });
+
+                    // Jalankan animasi komentar setelah semua item ditambahkan
+                    runCommentAnimation();
+                } else {
+                    console.error(data.message);
+                }
+            })
+            .catch(error => console.error('Terjadi kesalahan:', error));
+    });
+
+    // Fungsi untuk animasi komentar
+    function runCommentAnimation() {
+        const comments = document.querySelectorAll('.testimoni .item');
+        let index = 0;
+        const container = document.querySelector('.testimoni');
+        const itemWidth = comments[0].offsetWidth;
+        const containerWidth = container.offsetWidth;
+
+        function updateComments() {
+            comments.forEach((comment, i) => {
+                if (i !== index) {
+                    comment.classList.add('small');
+                } else {
+                    comment.classList.remove('small');
+                }
+            });
+        }
+
+        function scrollComments() {
+            index = (index + 1) % comments.length;
+            const scrollLeft = index * itemWidth;
+            container.scrollTo({
+                left: scrollLeft,
+                behavior: 'smooth'
+            });
+            updateComments();
+        }
+
+        setInterval(scrollComments, 4000);
+        updateComments();
+    }
 
 /*--------------------------------------------------------------
 # Program
@@ -516,6 +604,77 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
+let selectedValue = null;
+
+        // Event listener untuk tombol bundling
+        document.querySelectorAll('.bundling').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.bundling').forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedValue = this.getAttribute('data-value');
+            });
+        });
+
+        // Event listener untuk tombol "Donasi Sekarang" untuk menampilkan popup pembayaran
+        document.querySelector('.btn-submit').addEventListener('click', function() {
+            if (selectedValue === null) {
+                document.querySelector('.warning-message').style.display = 'block';
+                return;
+            }
+            document.querySelector('.popup-overlay-pembayaran').style.display = 'flex';
+        });
+
+        // Event listener untuk tombol "Iya" pada popup pembayaran
+        document.querySelector('.btn-iya').addEventListener('click', function() {
+            if (selectedValue === null) {
+                alert('Silakan pilih jumlah pohon terlebih dahulu!');
+                return;
+            }
+
+            const nama = document.getElementById('dns-nama').value;
+            const pesan = document.getElementById('dns-komentar').value;
+
+            // Kirim data ke backend dengan fetch
+            fetch('http://localhost:5000/createDonate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `jumlah=${selectedValue}&nama=${nama}&pesan=${pesan}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === '200') {
+                    // Jika sukses, tampilkan popup transfer (simulasi proses pembayaran)
+                    document.querySelector('.popup-overlay-pembayaran').style.display = 'none';
+                    document.querySelector('.popup-overlay-transfer').style.display = 'flex';
+
+                    // Simulasi proses pembayaran dengan waktu delay
+                    setTimeout(function() {
+                        // Sembunyikan popup transfer
+                        document.querySelector('.popup-overlay-transfer').style.display = 'none';
+
+                        // Tampilkan popup berhasil
+                        document.querySelector('.popup-overlay-berhasil').style.display = 'flex';
+
+                        // Reset form setelah donasi berhasil
+                        document.getElementById('popup-form-donasi').reset();
+                        selectedValue = null;
+                        document.querySelectorAll('.bundling').forEach(btn => btn.classList.remove('selected'));
+
+                    }, 2000); // Ganti 2000 dengan waktu yang sesuai untuk simulasi proses pembayaran
+                } else {
+                    alert('Gagal melakukan donasi: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Terjadi kesalahan:', error));
+        });
+
+        // Event listener untuk tombol "Tidak" pada popup pembayaran
+        document.querySelector('.btn-tidak').addEventListener('click', function() {
+            // Sembunyikan popup pembayaran
+            document.querySelector('.popup-overlay-pembayaran').style.display = 'none';
+        });
 
 /*--------------------------------------------------------------
 # Tentang Kami
