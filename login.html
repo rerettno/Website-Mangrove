@@ -7,193 +7,193 @@
     <title>Login Peduli Mangrove</title>
     
     <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-:root {
-    --hijau-tua: #4F6F52;
-    --hijau-muda: #AEC740;
-    --hijau-mudabgt: #D8EFBF;
-    --putih: #FFFFFF;
-    --hitam: #0a0a0a;
-    --putihbg:#f9f9f9;
-    scroll-behavior: smooth;
-}
+        :root {
+            --hijau-tua: #4F6F52;
+            --hijau-muda: #AEC740;
+            --hijau-mudabgt: #D8EFBF;
+            --putih: #FFFFFF;
+            --hitam: #0a0a0a;
+            --putihbg:#f9f9f9;
+            scroll-behavior: smooth;
+        }
 
-@font-face {
-    font-family: 'judul';
-    src: url('font/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'isi';
-    src: url('font/RobotoSerif-VariableFont_GRAD\,opsz\,wdth\,wght.ttf') format('truetype');
-}
+        @font-face {
+            font-family: 'judul';
+            src: url('font/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'isi';
+            src: url('font/RobotoSerif-VariableFont_GRAD\,opsz\,wdth\,wght.ttf') format('truetype');
+        }
 
-body {
-    font-family: 'isi';
-    color: var(--hitam);
-    background-color: var(--hijau-muda);
-    line-height: 1.6;
-    overflow: hidden;
-    overflow-y:scroll ;    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        body {
+            font-family: 'isi';
+            color: var(--hitam);
+            background-color: var(--hijau-muda);
+            line-height: 1.6;
+            overflow: hidden;
+            overflow-y:scroll ;    width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family:'judul';
-}
+        h1, h2, h3, h4, h5, h6 {
+            font-family:'judul';
+        }
 
-a {
-    color: var(--hitam);
-    text-decoration: none;
-}
-
-
-::selection {
-    color: var(--hitam);
-    background: var(--hijau-mudabgt);
-}
-
-.wrapper {
-    width: 380px;
-    padding: 30px ;
-    background:var(--putihbg);
-    border-radius: 5px;
-    text-align: center;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.wrapper header {
-    font-size: 35px;
-    font-weight: 600;
-}
-
-.wrapper form {
-    margin: 40px 0;
-}
-
-form .field {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-form .field.shake {
-    animation: shake 0.3s ease-in-out;
-}
-
-@keyframes shake {
-    0%,
-    100% {
-        margin-left: 0px;
-    }
-    20%,
-    80% {
-        margin-left: -12px;
-    }
-    40%,
-    60% {
-        margin-left: 12px;
-    }
-}
-
-form .field .input-area {
-    height: 50px;
-    width: 100%;
-    position: relative;
-}
-
-form input {
-    width: 100%;
-    height: 100%;
-    outline: none;
-    padding: 0 25px;
-    font-size: 18px;
-    background: none;
-    caret-color: var(--hijau-tua);
-    border-radius: 5px;
-    border: 1px solid #bfbfbf;
-    border-bottom-width: 2px;
-    transition: all 0.2s ease;
-    font-family: 'isi';
-}
-
-form .field input:focus,
-form .field.valid input {
-    border-color:var(--hijau-tua);
-}
-
-form .field.shake input,
-form .field.error input {
-    border-color:var(--hijau-muda);
-}
+        a {
+            color: var(--hitam);
+            text-decoration: none;
+        }
 
 
+        ::selection {
+            color: var(--hitam);
+            background: var(--hijau-mudabgt);
+        }
+
+        .wrapper {
+            width: 380px;
+            padding: 30px ;
+            background:var(--putihbg);
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .wrapper header {
+            font-size: 35px;
+            font-weight: 600;
+        }
+
+        .wrapper form {
+            margin: 40px 0;
+        }
+
+        form .field {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        form .field.shake {
+            animation: shake 0.3s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%,
+            100% {
+                margin-left: 0px;
+            }
+            20%,
+            80% {
+                margin-left: -12px;
+            }
+            40%,
+            60% {
+                margin-left: 12px;
+            }
+        }
+
+        form .field .input-area {
+            height: 50px;
+            width: 100%;
+            position: relative;
+        }
+
+        form input {
+            width: 100%;
+            height: 100%;
+            outline: none;
+            padding: 0 25px;
+            font-size: 18px;
+            background: none;
+            caret-color: var(--hijau-tua);
+            border-radius: 5px;
+            border: 1px solid #bfbfbf;
+            border-bottom-width: 2px;
+            transition: all 0.2s ease;
+            font-family: 'isi';
+        }
+
+        form .field input:focus,
+        form .field.valid input {
+            border-color:var(--hijau-tua);
+        }
+
+        form .field.shake input,
+        form .field.error input {
+            border-color:var(--hijau-muda);
+        }
 
 
 
-form input::placeholder {
-    color: #bfbfbf;
-    font-size: 17px;
-}
 
-form .field .error-txt {
-    color: var(--hijau-tua);
-    text-align: left;
-    margin-top: 5px;
-    font-size: 12px;
-}
 
-form .field .error {
-    display: none;
-}
+        form input::placeholder {
+            color: #bfbfbf;
+            font-size: 17px;
+        }
 
-form .field.shake .error,
-form .field.error .error {
-    display: block;
-}
+        form .field .error-txt {
+            color: var(--hijau-tua);
+            text-align: left;
+            margin-top: 5px;
+            font-size: 12px;
+        }
 
-form .pass-txt {
-    text-align: left;
-    margin-top: -10px;
-}
+        form .field .error {
+            display: none;
+        }
 
-.wrapper a {
-    color:var(--hijau-tua);
-    text-decoration: none;
-}
+        form .field.shake .error,
+        form .field.error .error {
+            display: block;
+        }
 
-.wrapper a:hover {
-    text-decoration: underline;
-}
+        form .pass-txt {
+            text-align: left;
+            margin-top: -10px;
+        }
 
-form input[type="submit"] {
-    height: 50px;
-    margin-top: 20px;
-    color:var(--hitam);
-    padding: 0;
-    border: none;
-    background:var(--hijau-muda);
-    cursor: pointer;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
+        .wrapper a {
+            color:var(--hijau-tua);
+            text-decoration: none;
+        }
 
-form input[type="submit"]:hover {
-    background: var(--hijau-tua);
-    color: var(--putih);
-}
+        .wrapper a:hover {
+            text-decoration: underline;
+        }
+
+        form input[type="submit"] {
+            height: 50px;
+            margin-top: 20px;
+            color:var(--hitam);
+            padding: 0;
+            border: none;
+            background:var(--hijau-muda);
+            cursor: pointer;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background: var(--hijau-tua);
+            color: var(--putih);
+        }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
-        <header>Login Form</header>
+        <header>Login Admin</header>
         <form id="loginForm">
             <div class="field email">
                 <div class="input-area">
@@ -217,18 +217,13 @@ form input[type="submit"]:hover {
               eInput = eField.querySelector("input"),
               pField = form.querySelector(".password"),
               pInput = pField.querySelector("input");
-        
-        // Credentials for the admin user
-        const adminEmail = "admin@example.com";
-        const adminPassword = "admin123";
-        
-        form.onsubmit = (e) => {
+
+        form.onsubmit = async (e) => {
             e.preventDefault();
-        
+
             checkEmail();
             checkPass();
-        
-            // Tambahkan kelas shake jika ada kesalahan
+
             if (eField.classList.contains("error")) {
                 eField.classList.add("shake");
                 setTimeout(() => {
@@ -241,49 +236,69 @@ form input[type="submit"]:hover {
                     pField.classList.remove("shake");
                 }, 500);
             }
-        
+
             eInput.onkeyup = () => { checkEmail(); }
             pInput.onkeyup = () => { checkPass(); }
-        
+
             function checkEmail() {
                 let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
                 if (!eInput.value.match(pattern)) {
                     eField.classList.add("error");
                     eField.classList.remove("valid");
                     let errorTxt = eField.querySelector(".error-txt");
-        
-                    (eInput.value != "") ? errorTxt.innerText = "Enter a valid email address": errorTxt.innerText = "Email can't be blank";
+
+                    (eInput.value != "") ? errorTxt.innerText = "Enter a valid email address": errorTxt.innerText = "Email tidak boleh kosong!";
                 } else {
                     eField.classList.remove("error");
                     eField.classList.add("valid");
                 }
             }
-        
+
             function checkPass() {
                 if (pInput.value == "") {
                     pField.classList.add("error");
                     pField.classList.remove("valid");
                     let errorTxt = pField.querySelector(".error-txt");
-                    errorTxt.innerText = "Password can't be blank";
+                    errorTxt.innerText = "Password tidak boleh kosong!";
                 } else {
                     pField.classList.remove("error");
                     pField.classList.add("valid");
                 }
             }
-        
-            // Check if both fields are valid
+
             if (!eField.classList.contains("error") && !pField.classList.contains("error")) {
-                // Check if the entered credentials match the admin credentials
-                if (eInput.value === adminEmail && pInput.value === adminPassword) {
-                    // Redirect to the admin page
-                    window.location.href = "admin.html";
-                } else {
-                    // Show an error message if credentials are incorrect
+                try {
+                    const response = await fetch('http://localhost:5000/loginAdmin', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: eInput.value,
+                            password: pInput.value
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Login failed');
+                    }
+
+                    const data = await response.json();
+
+                    if (data.token) {
+                        // Save the token to localStorage or cookies
+                        localStorage.setItem('token', data.token);
+
+                        // Redirect to the admin page
+                        window.location.href = "admin.html";
+                    } else {
+                        alert("Invalid email or password");
+                    }
+                } catch (error) {
                     alert("Invalid email or password");
                 }
             }
         }
-        
     </script>
 
 </body>
