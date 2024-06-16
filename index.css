@@ -843,7 +843,7 @@ a {
 .warning{
     display: none;
     color: red;
-    font-size: 0.8px;
+    font-size: 10px;
     transition: display 2s ease;
 }
 
@@ -875,7 +875,7 @@ a {
     display: none;
     position: relative;
     top:-10px;
-    font-size: 0.8px;
+    font-size: 10px;
     color: red;
     
 }
