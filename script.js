@@ -580,23 +580,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-//         // Event listener untuk tombol bundling
-//         document.querySelectorAll('.bundling').forEach(button => {
-//             button.addEventListener('click', function() {
-//                 document.querySelectorAll('.bundling').forEach(btn => btn.classList.remove('selected'));
-//                 this.classList.add('selected');
-//                 selectedValue = this.getAttribute('data-value');
-//             });
-//         });
 
-//         // Event listener untuk tombol "Donasi Sekarang" untuk menampilkan popup pembayaran
-//         document.querySelector('.btn-submit').addEventListener('click', function() {
-//             if (selectedValue === null) {
-//                 document.querySelector('.warning-message').style.display = 'block';
-//                 return;
-//             }
-//             document.querySelector('.popup-overlay-pembayaran').style.display = 'flex';
-//         });
     function validateBundling() {
         const bundlingButtons = document.querySelectorAll('.bundling');
         let bundlingSelected = false;
@@ -604,8 +588,8 @@ document.addEventListener('DOMContentLoaded', function() {
         bundlingButtons.forEach(button => {
             if (button.classList.contains('active')) {
                 bundlingSelected = true;
-                // this.classList.add('selected');
-                //selectedValue = this.getAttribute('data-value');
+                document.querySelectorAll('.bundling').forEach(btn => btn.classList.remove('selected'));
+                selectedValue = button.getAttribute('data-value');
             }
         });
     
