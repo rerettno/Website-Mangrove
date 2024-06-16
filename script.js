@@ -618,77 +618,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
-// let selectedValue = null;
 
-//         // Event listener untuk tombol bundling
-//         document.querySelectorAll('.bundling').forEach(button => {
-//             button.addEventListener('click', function() {
-//                 document.querySelectorAll('.bundling').forEach(btn => btn.classList.remove('selected'));
-//                 this.classList.add('selected');
-//                 selectedValue = this.getAttribute('data-value');
-//             });
-//         });
-
-//         // Event listener untuk tombol "Donasi Sekarang" untuk menampilkan popup pembayaran
-//         document.querySelector('.btn-submit').addEventListener('click', function() {
-//             if (selectedValue === null) {
-//                 document.querySelector('.warning-message').style.display = 'block';
-//                 return;
-//             }
-//             document.querySelector('.popup-overlay-pembayaran').style.display = 'flex';
-//         });
-
-//         // Event listener untuk tombol "Iya" pada popup pembayaran
-//         document.querySelector('.btn-iya').addEventListener('click', function() {
-//             if (selectedValue === null) {
-//                 alert('Silakan pilih jumlah pohon terlebih dahulu!');
-//                 return;
-//             }
-
-//             const nama = document.getElementById('dns-nama').value;
-//             const pesan = document.getElementById('dns-komentar').value;
-
-//             // Kirim data ke backend dengan fetch
-//             fetch('http://localhost:5000/createDonate', {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type': 'application/x-www-form-urlencoded'
-//                 },
-//                 body: `jumlah=${selectedValue}&nama=${nama}&pesan=${pesan}`
-//             })
-//             .then(response => response.json())
-//             .then(data => {
-//                 if (data.status === '200') {
-//                     // Jika sukses, tampilkan popup transfer (simulasi proses pembayaran)
-//                     document.querySelector('.popup-overlay-pembayaran').style.display = 'none';
-//                     document.querySelector('.popup-overlay-transfer').style.display = 'flex';
-
-//                     // Simulasi proses pembayaran dengan waktu delay
-//                     setTimeout(function() {
-//                         // Sembunyikan popup transfer
-//                         document.querySelector('.popup-overlay-transfer').style.display = 'none';
-
-//                         // Tampilkan popup berhasil
-//                         document.querySelector('.popup-overlay-berhasil').style.display = 'flex';
-
-//                         // Reset form setelah donasi berhasil
-//                         document.getElementById('popup-form-donasi').reset();
-//                         selectedValue = null;
-//                         document.querySelectorAll('.bundling').forEach(btn => btn.classList.remove('selected'));
-
-//                     }, 2000); // Ganti 2000 dengan waktu yang sesuai untuk simulasi proses pembayaran
-//                 } else {
-//                     alert('Gagal melakukan donasi: ' + data.message);
-//                 }
-//             })
-//             .catch(error => console.error('Terjadi kesalahan:', error));
-//         });
-
-//         // Event listener untuk tombol "Tidak" pada popup pembayaran
-//         document.querySelector('.btn-tidak').addEventListener('click', function() {
-//             // Sembunyikan popup pembayaran
-//             document.querySelector('.popup-overlay-pembayaran').style.display = 'none';
-//         });
 
 /*--------------------------------------------------------------
 # Tentang Kami
