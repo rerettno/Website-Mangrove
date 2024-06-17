@@ -51,12 +51,12 @@
             <div class="relawan">
                 <img src="foto/people.png" alt="Mangrove Image">
                 <div class="info">
-                    <h3>2500</h3>
+                    <h3 id="totalRelawan">Loading...</h3>
                     <p>Relawan </p>
                 </div>
                 <img src="foto/pohon.png" alt="Mangrove Image">
                 <div class="info">
-                    <h3>2.50000000</h3>
+                    <h3 id="totalPohon">Loading...</h3>
                     <p>Pohon Telah Terkumpul </p>
                 </div>
             </div>
@@ -98,6 +98,16 @@
         </div>
     </div>
     
+    <div id="komentar" class="komentar">
+        <div class="container">
+            <h1>Mari Dengarkan</h1>
+            <h2>Apa Kata Mereka ?</h2>
+            <div class="testimoni">
+                <!-- Data Akan muncul disini -->
+                
+            </div>
+        </div>
+    </div>
     <!--Informasi-->
     <div id="informasi" class="informasi" >
         <div class="container">
@@ -106,83 +116,10 @@
             
             <!-- Kontainer Box Informasi -->
             <div class="box-container">
-                <!-- Panah Kiri -->
-                <div class="arrow-wrapper left">
-                    <img src="foto/left.png" class="arrow-left" alt="Left Arrow">
-                </div>
-                <!-- Panah Kanan -->
-                <div class="arrow-wrapper right">
-                    <img src="foto/right.png" class="arrow-right" alt="Right Arrow">
-                </div>
                 
-                     
-
-                <!-- Box Informasi 2 -->
-                <div class="box">
-                    <div class="identitas">
-                        <img src="foto/user.png" alt="User Foto">
-                        <div class="data-user">
-                            <p class="nama">Nama User 2</p>
-                            <p class="tanggal">Tanggal 2</p>
-                        </div>
-                    </div>
-                    <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
-                </div>
-                <!-- Box Informasi 3 -->
-                <div class="box">
-                    <div class="identitas">
-                        <img src="foto/user.png" alt="User Foto">
-                        <div class="data-user">
-                            <p class="nama">Nama User 3</p>
-                            <p class="tanggal">Tanggal 3</p>
-                        </div>
-                    </div>
-                    <p class="detail">Komentar dari user 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Komentar dari user 3. Lorem ipsum dolor sit amet, consectetur adipiscing elitKomentar dari user 3. Lorem ipsum dolor sit amet, consectetur adipiscing elitKomentar dari user 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                </div>
-                <!-- Box Informasi 4 -->
-                <div class="box">
-                    <div class="identitas">
-                        <img src="foto/user.png" alt="User Foto">
-                        <div class="data-user">
-                            <p class="nama">Nama User 4</p>
-                            <p class="tanggal">Tanggal 4</p>
-                        </div>
-                    </div>
-                    <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
-                </div>
-                <!-- Box Informasi 5 -->
-                <div class="box">
-                    <div class="identitas">
-                        <img src="foto/user.png" alt="User Foto">
-                        <div class="data-user">
-                            <p class="nama"> p inpo</p>
-                            <p class="tanggal">Tanggal</p>
-                        </div>
-                    </div>
-                    <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
-                </div>
-                <div class="box">
-                    <div class="identitas">
-                        <img src="foto/user.png" alt="User Foto">
-                        <div class="data-user">
-                            <p class="nama"> p inpo</p>
-                            <p class="tanggal">Tanggal</p>
-                        </div>
-                    </div>
-                    <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
-                </div>
-                <div class="box">
-                    <div class="identitas">
-                        <img src="foto/user.png" alt="User Foto">
-                        <div class="data-user">
-                            <p class="nama"> p inpo</p>
-                            <p class="tanggal">Tanggal</p>
-                        </div>
-                    </div>
-                    <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
-                </div>
+                
+                <!-- Box Informasi akan diisi oleh JavaScript -->
             </div>
-
 
             <!-- Popup Detail -->
             <div class="popup-overlay popup-overlay-detail"></div>
@@ -190,14 +127,14 @@
                 <div class="full-detail"></div>
             </div>
 
-            <button class="btn-informasi">Salurkan Informasimu</button>
+            <button class="btn-informasi" onclick="openForm()">Salurkan Informasimu</button>
         </div>
     </div>
     
     <!-- Popup Form Informasi -->
     <div class="popup-overlay popup-overlay-form"></div>
     <div class="popup-informasi">
-        <span class="popup-close popup-close-form">&times;</span>
+        <span class="popup-close popup-close-form" onclick="closeForm()">&times;</span>
         
         <h2>Salurkan Informasimu</h2>
         <h1>Berikan Informasi Mengenai Kondisi Mangrove di Wilayah Indonesia</h1>
@@ -241,15 +178,13 @@
 
         <button class="btn-kirim" onclick="validateForm()">Kirim</button>
     </div>        
-    
-    <!-- Popup kirim -->
+
     <div class="popup-overlay popup-overlay-kirim"></div>
     <div class="popup-kirim">
         <img src="foto/kirim.png" alt="berhasil">
         <h2>Informasi sedang diproses ...</h2>
     </div>
 
-    <!-- Popup terima -->
     <div class="popup-overlay popup-overlay-terima"></div>
     <div class="popup-terima">
         <img src="foto/terima.png" alt="berhasil">
@@ -468,5 +403,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="informasi.js"></script>
+    <script src="donasi.js"></script>
 </body>
 </html>

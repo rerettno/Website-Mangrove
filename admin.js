@@ -254,3 +254,246 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
     
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const response = await fetch('http://localhost:5000/getAllDonate');
+            const data = await response.json();
+
+            if (response.ok) {
+                const totalPohon = document.getElementById('totalPohon');
+                const totalRelawan = document.getElementById('totalRelawan');
+
+                // Mengatur nilai dari database
+                totalPohon.textContent = data.donate.reduce((acc, curr) => acc + parseInt(curr.jumlah), 0).toString();
+                totalRelawan.textContent = data.donate.length.toString();
+            } else {
+                console.error('Gagal mengambil data donasi:', data.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const response = await fetch('http://localhost:5000/getAllDonate');
+            const data = await response.json();
+
+            if (response.ok) {
+                const totalPohon = document.getElementById('totalPohon');
+                const totalRelawan = document.getElementById('totalRelawan');
+                const donationHistory = document.getElementById('donationHistory');
+                const detailDonasi = document.getElementById('detailDonasi');
+                const showAllHistory = document.getElementById('showAllHistory');
+                const popupDetailRiwayat = document.getElementById('popupDetailRiwayat');
+                const closePopupDetail = document.getElementById('closePopupDetail');
+
+                // Mengatur nilai dari database
+                totalPohon.textContent = data.donate.reduce((acc, curr) => acc + parseInt(curr.jumlah), 0).toString();
+                totalRelawan.textContent = data.donate.length.toString();
+
+                // Render daftar donasi (maksimal 3)
+                data.donate.slice(0, 3).forEach(donate => {
+                    const li = document.createElement('li');
+                    li.classList.add('p-4', 'border-b', 'border-gray-200', 'flex', 'items-center');
+
+                    const img = document.createElement('img');
+                    img.src = 'foto/user.png';
+                    img.alt = 'User Foto';
+                    img.classList.add('w-12', 'h-12', 'rounded-full', 'border-2');
+                    img.style.borderColor = 'var(--hijau-tua)';
+                    img.style.marginRight = '16px';
+
+                    const div = document.createElement('div');
+
+                    const pohonDonasi = document.createElement('p');
+                    pohonDonasi.classList.add('font-bold', 'text-lg');
+                    pohonDonasi.textContent = `${donate.jumlah} Pohon`;
+
+                    const namaDonatur = document.createElement('p');
+                    namaDonatur.classList.add('text-sm');
+                    namaDonatur.innerHTML = `Oleh <span class="italic">${donate.nama}</span>`;
+
+                    const tanggalDonasi = document.createElement('p');
+                    tanggalDonasi.classList.add('text-xs', 'text-gray-500');
+                    tanggalDonasi.textContent = new Date(donate.createdAt).toLocaleDateString();
+
+                    div.appendChild(pohonDonasi);
+                    div.appendChild(namaDonatur);
+                    div.appendChild(tanggalDonasi);
+
+                    li.appendChild(img);
+                    li.appendChild(div);
+
+                    donationHistory.appendChild(li);
+                });
+
+                // Render daftar donasi detail
+                data.donate.forEach(donate => {
+                    const li = document.createElement('li');
+                    li.classList.add('p-4', 'border-b', 'border-gray-200', 'flex', 'items-center');
+
+                    const img = document.createElement('img');
+                    img.src = 'foto/user.png';
+                    img.alt = 'User Foto';
+                    img.classList.add('w-12', 'h-12', 'rounded-full', 'border-2');
+                    img.style.borderColor = 'var(--hijau-tua)';
+                    img.style.marginRight = '16px';
+
+                    const div = document.createElement('div');
+
+                    const pohonDonasi = document.createElement('p');
+                    pohonDonasi.classList.add('font-bold', 'text-lg');
+                    pohonDonasi.textContent = `${donate.jumlah} Pohon`;
+
+                    const namaDonatur = document.createElement('p');
+                    namaDonatur.classList.add('text-sm');
+                    namaDonatur.innerHTML = `Oleh <span class="italic">${donate.nama}</span>`;
+
+                    const tanggalDonasi = document.createElement('p');
+                    tanggalDonasi.classList.add('text-xs', 'text-gray-500');
+                    tanggalDonasi.textContent = new Date(donate.createdAt).toLocaleDateString();
+
+                    div.appendChild(pohonDonasi);
+                    div.appendChild(namaDonatur);
+                    div.appendChild(tanggalDonasi);
+
+                    li.appendChild(img);
+                    li.appendChild(div);
+
+                    detailDonasi.appendChild(li);
+                });
+
+
+                // Event listener untuk tombol "Lihat Semua Donasi"
+                showAllHistory.addEventListener('click', () => {
+                    popupDetailRiwayat.classList.remove('hidden');
+                });
+
+                // Event listener untuk menutup popup
+                closePopupDetail.addEventListener('click', () => {
+                    popupDetailRiwayat.classList.add('hidden');
+                });
+            } else {
+                console.error('Gagal mengambil data donasi:', data.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const response = await fetch('http://localhost:5000/getAllInformasi');
+            const data = await response.json();
+    
+            if (response.ok) {
+                const informasiContainer = document.getElementById('informasiContainer');
+    
+                // Render box informasi
+                data.Informasi.forEach(informasi => {
+                    const boxInformasi = document.createElement('div');
+                    boxInformasi.classList.add('relative', 'bg-white', 'rounded-lg', 'border', 'border-gray-200', 'shadow-md', 'p-4', 'flex', 'flex-col', 'space-y-2');
+                    boxInformasi.style.backgroundColor = 'var(--putihbg)';
+    
+                    const headerInformasi = document.createElement('div');
+                    headerInformasi.classList.add('flex', 'items-center', 'space-x-4');
+    
+                    const userFoto = document.createElement('img');
+                    userFoto.src = 'foto/user.png';
+                    userFoto.alt = 'User Foto';
+                    userFoto.classList.add('w-8', 'h-8');
+    
+                    const userInfo = document.createElement('div');
+                    userInfo.classList.add('flex-grow');
+    
+                    const namaPengguna = document.createElement('p');
+                    namaPengguna.classList.add('text-sm', 'font-semibold', 'break-words');
+                    namaPengguna.textContent = informasi.nama;
+    
+                    const tanggalInformasi = document.createElement('p');
+                    tanggalInformasi.classList.add('text-xs', 'text-gray-500');
+                    tanggalInformasi.textContent = new Date(informasi.createdAt).toLocaleDateString();
+    
+                    const moreButton = document.createElement('button');
+                    moreButton.classList.add('more-button');
+                    moreButton.setAttribute('aria-label', 'More Options');
+                    moreButton.setAttribute('data-informasi-id', informasi.id);
+    
+                    userInfo.appendChild(namaPengguna);
+                    userInfo.appendChild(tanggalInformasi);
+    
+                    headerInformasi.appendChild(userFoto);
+                    headerInformasi.appendChild(userInfo);
+                    headerInformasi.appendChild(moreButton);
+    
+                    const detailInformasi = document.createElement('p');
+                    detailInformasi.classList.add('text-sm', 'break-words');
+                    detailInformasi.innerHTML = `Pada lokasi mangrove di <span>${informasi.kota}</span>, <span>${informasi.provinsi}</span>, <span>${informasi.detail}</span>`;
+    
+                    boxInformasi.appendChild(headerInformasi);
+                    boxInformasi.appendChild(detailInformasi);
+    
+                    informasiContainer.appendChild(boxInformasi);
+                });
+            } else {
+                console.error('Gagal mengambil data informasi:', data.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    
+        const popupMessage = document.getElementById('popupMessage');
+        const popup = document.getElementById('popup');
+        const hapusBtn = document.getElementById('hapusBtn');
+        const tutupPopupBtn = document.getElementById('tutupPopupBtn');
+    
+        if (popupMessage && popup && hapusBtn && tutupPopupBtn) {
+            const showPopup = (informasiId) => {
+                popupMessage.textContent = 'Apakah Anda yakin ingin menghapus informasi ini?';
+                popup.classList.remove('hidden');
+    
+                // Tambahkan event listener pada tombol "Hapus Informasi"
+                hapusBtn.addEventListener('click', () => {
+                    hapusInformasi(informasiId);
+                });
+            };
+    
+            const hapusInformasi = async (informasiId) => {
+                try {
+                    const response = await fetch('/deleteInformasi', {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id: informasiId })
+                    });
+    
+                    if (response.ok) {
+                        console.log('Informasi berhasil dihapus');
+                        // Lakukan tindakan lain jika diperlukan, seperti memperbarui tampilan atau menutup popup
+                        popup.classList.add('hidden');
+                    } else {
+                        console.error('Gagal menghapus informasi');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            };
+    
+            tutupPopupBtn.addEventListener('click', () => {
+                console.log('Tombol Tutup diklik');
+                popup.classList.add('hidden');
+            });
+    
+            const moreButtons = document.querySelectorAll('.more-button');
+            moreButtons.forEach(moreButton => {
+                moreButton.addEventListener('click', () => {
+                    const informasiId = moreButton.getAttribute('data-informasi-id');
+                    showPopup(informasiId);
+                });
+            });
+        } else {
+            console.error('Elemen popupMessage, popup, hapusBtn, atau tutupPopupBtn tidak ditemukan');
+        }
+    });

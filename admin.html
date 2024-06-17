@@ -176,123 +176,29 @@
     <div class="info-section pt-20 mt-10 px-4 md:px-8 lg:px-16">
         <div class="donation-summary bg-white p-6 rounded-lg shadow-lg mb-8">
             <p class="text-lg md:text-xl lg:text-2xl font-semibold text-green-700 mb-2" style="color: var(--hijau-muda);">Pohon Terkumpul</p>
-            <p class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2"><span id="totalDonation">100</span> pohon</p>
-            <p class="text-sm md:text-base lg:text-lg">Oleh <span id="volunteers">20</span> masyarakat #Peduli</p>
+            <p class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2"><span id="totalPohon">Loading...</span> pohon</p>
+            <p class="text-sm md:text-base lg:text-lg">Oleh <span id="totalRelawan">Loading...</span> masyarakat #Peduli</p>
         </div>
-        <div class="donation-history bg-white p-6 rounded-lg shadow-lg">
-            <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-4">Donasi </h3>
-            <ul id="donationHistory" class="list-none space-y-4">
-                <li class="p-4 border-b border-gray-200 flex items-center">
-                    <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                    <div>
-                        <p class="font-bold text-lg">50 Pohon</p>
-                        <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                        <p class="text-xs text-gray-500">Tanggal</p>
-                    </div>
-                </li>
-                <li class="p-4 border-b border-gray-200 flex items-center">
-                    <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                    <div>
-                        <p class="font-bold text-lg">30 Pohon</p>
-                        <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                        <p class="text-xs text-gray-500">Tanggal</p>
-                    </div>
-                </li>
-                <li class="p-4 border-b border-gray-200 flex items-center">
-                    <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                    <div>
-                        <p class="font-bold text-lg">20 Pohon</p>
-                        <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                        <p class="text-xs text-gray-500">Tanggal</p>
-                    </div>
-                </li>
-            </ul>
-            <button id="showAllHistory" class="mt-6 bg-hijau-muda text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-300" style="background-color: var(--hijau-muda);">Lihat Semua Donasi</button>
-        </div>
+         <div class="donation-history bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-4">Donasi </h3>
+        <ul id="donationHistory" class="list-none space-y-4">
+            <!-- Daftar donasi akan dirender di sini -->
+        </ul>
+        <button id="showAllHistory" class="mt-6 bg-hijau-muda text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-300" style="background-color: var(--hijau-muda);">Lihat Semua Donasi</button>
+    </div>
     </div>
 
     
     <div id="popupDetailRiwayat" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
         <div class="bg-white p-4 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/3 relative">
             <h2 class="text-lg font-semibold mb-4">Daftar Masyarakat #Peduli</h2>
-            <span id="closePopupDetail" class=" absolute top-0 right-0 p-4 mr-1 cursor-pointer text-3xl text-gray-600 hover:text-gray-800">
+            <span id="closePopupDetail" class="absolute top-0 right-0 p-4 mr-1 cursor-pointer text-3xl text-gray-600 hover:text-gray-800">
                 &times;
             </span>
 
             <ul id="detailDonasi" class="list-none space-y-2 overflow-y-auto max-h-80">
-                <li class="p-4 border-b border-gray-200 flex items-center">
-                    <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                    <div>
-                        <p class="font-bold text-lg">50 Pohon</p>
-                        <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                        <p class="text-xs text-gray-500">Tanggal</p>
-                    </li>
-                    <li class="p-4 border-b border-gray-200 flex items-center">
-                        <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                        <div>
-                            <p class="font-bold text-lg">30 Pohon</p>
-                            <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                            <p class="text-xs text-gray-500">Tanggal</p>
-                        </div>
-                    </li>
-                    <li class="p-4 border-b border-gray-200 flex items-center">
-                        <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                        <div>
-                            <p class="font-bold text-lg">20 Pohon</p>
-                            <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                            <p class="text-xs text-gray-500">Tanggal</p>
-                        </div>
-                    </li>
-                    <li class="p-4 border-b border-gray-200 flex items-center">
-                        <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                        <div>
-                            <p class="font-bold text-lg">30 Pohon</p>
-                            <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                            <p class="text-xs text-gray-500">Tanggal</p>
-                        </div>
-                    </li>
-                    <li class="p-4 border-b border-gray-200 flex items-center">
-                        <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                        <div>
-                            <p class="font-bold text-lg">30 Pohon</p>
-                            <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                            <p class="text-xs text-gray-500">Tanggal</p>
-                        </div>
-                    </li>
-                    <li class="p-4 border-b border-gray-200 flex items-center">
-                        <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                        <div>
-                            <p class="font-bold text-lg">30 Pohon</p>
-                            <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                            <p class="text-xs text-gray-500">Tanggal</p>
-                        </div>
-                    </li>
-                    <li class="p-4 border-b border-gray-200 flex items-center">
-                        <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                        <div>
-                            <p class="font-bold text-lg">30 Pohon</p>
-                            <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                            <p class="text-xs text-gray-500">Tanggal</p>
-                        </div>
-                    </li>
-                    <li class="p-4 border-b border-gray-200 flex items-center">
-                        <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                        <div>
-                            <p class="font-bold text-lg">30 Pohon</p>
-                            <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                            <p class="text-xs text-gray-500">Tanggal</p>
-                        </div>
-                    </li>
-                    <li class="p-4 border-b border-gray-200 flex items-center">
-                        <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
-                        <div>
-                            <p class="font-bold text-lg">30 Pohon</p>
-                            <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
-                            <p class="text-xs text-gray-500">Tanggal</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                <!-- Daftar donasi detail akan dirender di sini -->
+            </ul>
         </div>
     </div>
     
@@ -304,96 +210,22 @@
         <div class="container py-12">
             <h1 class="font-semibold text-2xl md:text-3xl lg:text-4xl text-center mb-10" style="color: var(--hijau-tua);">Kumpulan Informasi</h1>
             <!-- Kontainer Box Informasi -->
-            <div class="space-y-4">
-                <!-- Box Informasi 1 -->
-                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
-                    style="background-color: var(--putihbg);">
-                    <div class="flex items-center space-x-4">
-                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
-                        <div class="flex-grow">
-                            <p class="text-sm font-semibold break-words">ANANANANANANAkAAAA</p>
-                            <p class="text-xs text-gray-500">Tanggal 1</p>
-                        </div>
-                        <button class="more-button" aria-label="More Options"></button>
-                    </div>
-                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
-                </div>
-                <!-- Box Informasi 2 -->
-                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
-                    style="background-color: var(--putihbg);">
-                    <div class="flex items-center space-x-4">
-                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
-                        <div class="flex-grow">
-                            <p class="text-sm font-semibold break-words">Nama Pengguna</p>
-                            <p class="text-xs text-gray-500">Tanggal 2</p>
-                        </div>
-                        <button class="more-button" aria-label="More Options"></button>
-                    </div>
-                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
-                </div>
-                                <!-- Box Informasi 2 -->
-                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
-                    style="background-color: var(--putihbg);">
-                    <div class="flex items-center space-x-4">
-                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
-                        <div class="flex-grow">
-                            <p class="text-sm font-semibold break-words">Nama Pengguna</p>
-                            <p class="text-xs text-gray-500">Tanggal 2</p>
-                        </div>
-                        <button class="more-button" aria-label="More Options"></button>
-                    </div>
-                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
-                </div>
-                                            <!-- Box Informasi 2 -->
-                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
-                    style="background-color: var(--putihbg);">
-                    <div class="flex items-center space-x-4">
-                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
-                        <div class="flex-grow">
-                            <p class="text-sm font-semibold break-words">Nama Pengguna</p>
-                            <p class="text-xs text-gray-500">Tanggal 2</p>
-                        </div>
-                        <button class="more-button" aria-label="More Options"></button>
-                    </div>
-                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
-                </div>
-                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
-                    style="background-color: var(--putihbg);">
-                    <div class="flex items-center space-x-4">
-                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
-                        <div class="flex-grow">
-                            <p class="text-sm font-semibold break-words">Nama Pengguna</p>
-                            <p class="text-xs text-gray-500">Tanggal 2</p>
-                        </div>
-                        <button class="more-button" aria-label="More Options"></button>
-                    </div>
-                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
-                </div>
-                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
-                    style="background-color: var(--putihbg);">
-                    <div class="flex items-center space-x-4">
-                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
-                        <div class="flex-grow">
-                            <p class="text-sm font-semibold break-words">Nama Pengguna</p>
-                            <p class="text-xs text-gray-500">Tanggal 2</p>
-                        </div>
-                        <button class="more-button" aria-label="More Options"></button>
-                    </div>
-                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
-                </div>
+            <div id="informasiContainer" class="space-y-4">
+                <!-- Box Informasi akan dirender di sini -->
             </div>
         </div>
     </div>
 
     <!-- Popup -->
-    <div id="popup" class="popup">
-        <button id="hapusBtn" class="text-xs md:text-sm">Hapus Informasi</button>
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <p id="popupMessage"></p>
+            <button id="hapusBtn">Hapus Informasi</button>
+        </div>
     </div>
 
-
-    <script src="admin.js">
-
-    </script>
+    <script src="admin.js"></script>
+    <script src="donasi.js"></script>
 </body>
 
 </html>
