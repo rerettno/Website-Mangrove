@@ -938,7 +938,7 @@ a {
 }
 
 .blog-post img {
-    width: 180px; /* Lebar maksimum gambar */
+    width: 200px; /* Lebar maksimum gambar */
     height: 150px;
     border-radius: 10px; /* Sudut lengkungan border */
     margin-right: 50px; /* Jarak kanan dari elemen lain */
