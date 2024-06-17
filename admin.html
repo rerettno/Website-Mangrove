@@ -1,58 +1,323 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Peduli Mangrove</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --hijau-tua: #4F6F52;
+            --hijau-muda: #AEC740;
+            --hijau-mudabgt: #D8EFBF;
+            --putih: #FFFFFF;
+            --hitam: #0a0a0a;
+            --putihbg: #f9f9f9;
+            scroll-behavior: smooth;
+        }
 
-    <link rel="stylesheet" href="index.css">
+        @font-face {
+            font-family: 'judul';
+            src: url('font/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'isi';
+            src: url('font/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'isi', sans-serif;
+            color: var(--hitam);
+            background-color: var(--putih);
+            line-height: 1.6;
+            overflow: hidden;
+            overflow-y: scroll;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'judul', serif;
+        }
+
+        a {
+            color: var(--hitam);
+            text-decoration: none;
+        }
+
+        .popup {
+            position: absolute;
+            background-color: white;
+            padding: 5px;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            display: none;
+        }
+        
+        .popup button {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: var(--hitam);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .popup button:hover {
+            background-color: #f3f3f3;
+        }
+        
+        .more-button {
+            background-image: url('foto/more.png');
+            background-size: cover;
+            background-position: center;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+
+        /* Animasi Navbar */
+        @keyframes dropFromTop {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .animate-navbar {
+            animation: dropFromTop 2s ease forwards;
+        }
+
+        .navbar {
+            transition: top 1s ease-in-out; /* Tambahkan ini untuk transisi yang halus */
+        }
+
+        /* Hover efek untuk menu navbar */
+        .navbar .menu li a:hover {
+            border-bottom: 5px solid var(--hijau-muda);
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        /* Media Queries untuk mengatur ukuran font */
+        .text-sm {
+            font-size: 14px;
+        }
+
+        .text-xs {
+            font-size: 12px;
+        }
+
+        .text-base {
+            font-size: 16px;
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .text-sm {
+                font-size: 12px;
+            }
+
+            .text-xs {
+                font-size: 10px;
+            }
+
+            .text-base {
+                font-size: 14px;
+            }
+
+            .font-semibold {
+                font-weight: 600;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .text-sm {
+                font-size: 14px;
+            }
+
+            .text-xs {
+                font-size: 12px;
+            }
+
+            .text-base {
+                font-size: 16px;
+            }
+
+            .font-semibold {
+                font-weight: 600;
+            }
+        }
+    </style>
 </head>
 
-<body>
-        <!--Navbar-->
-        <nav class="navbar">
-            <div class="logo">
-                <img src="foto/Logo.png" alt="Logo">
-            </div>
-            <ul class="menu">
-                <li><a id="logoutBtn">LogOut</a></li>
-            </ul>
-        </nav>
-
-        <!--Kumpulan Informasi-->
-        <div id="informasi" class="kumpulan-informasi" >
-            <div class="container">
-                <h1 class="h1">Kumpulan Informasi</h1>
-                
-                <!-- Kontainer Box Informasi -->
-                <div class="container-kumpulan">
-                        
-                    <!-- Box Informasi 1 -->
-                    <div class="box-kumpulan">
-                        <div class="identitas">
-                            <img src="foto/user.png" alt="User Foto">
-                            <div class="data-user">
-                                <p class="nama">ANANANANANANAkAAAA</p>
-                                <p class="tanggal">Tanggal 1</p>
-                            </div>
-                            <button class="hapus"></button>
-                        </div>
-                        <p class="detail">Pada lokasi mangrove di <span>kota</span> <span >provinsi</span>, <span >detail</span></p>
-                    </div>
-
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="navbar fixed top-0 left-0 right-0 w-full h-12 md:h-16 lg:h-20 flex items-center justify-between px-4 md:px-8 lg:px-16 shadow-md z-50"
+        style="background-color: var(--hijau-tua);">
+        <div class="flex items-center">
+            <img src="foto/Logo.png" alt="Logo" class="h-6 md:h-8 lg:h-10">
         </div>
-        <script>
-            // Temukan tombol logout berdasarkan id
-            var logoutButton = document.getElementById('logoutBtn');
-        
-            // Tambahkan event listener untuk menangani klik tombol logout
-            logoutButton.addEventListener('click', function() {
-                // Arahkan pengguna ke halaman login (ganti "halaman-login.html" dengan path yang sesuai)
-                window.location.href = "login.html";
-            });
-        </script>
-        
-    
-        <script src="script.js"></script>
+        <ul class="menu list-none flex space-x-4">
+            <li><a id="logoutBtn" class="text-white text-sm md:text-base font-semibold ">LogOut</a></li>
+        </ul>
+    </nav>
+
+    <!-- Donation Summary and History -->
+    <div class="info-section pt-20 mt-10 px-4 md:px-8 lg:px-16">
+        <div class="donation-summary bg-white p-6 rounded-lg shadow-lg mb-8">
+            <p class="text-lg md:text-xl lg:text-2xl font-semibold text-green-700 mb-2" style="color: var(--hijau-muda);">Pohon Terkumpul</p>
+            <p class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2"><span id="totalDonation">100</span> pohon</p>
+            <p class="text-sm md:text-base lg:text-lg">Oleh <span id="volunteers">20</span> masyarakat #Peduli</p>
+        </div>
+        <div class="donation-history bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-4">Riwayat Donasi Terbaru</h3>
+            <ul id="donationHistory" class="list-none space-y-4">
+                <li class="p-4 border-b border-gray-200 flex items-center">
+                    <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
+                    <div>
+                        <p class="font-bold text-lg">50 Pohon</p>
+                        <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
+                        <p class="text-xs text-gray-500">Tanggal</p>
+                    </div>
+                </li>
+                <li class="p-4 border-b border-gray-200 flex items-center">
+                    <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
+                    <div>
+                        <p class="font-bold text-lg">30 Pohon</p>
+                        <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
+                        <p class="text-xs text-gray-500">Tanggal</p>
+                    </div>
+                </li>
+                <li class="p-4 border-b border-gray-200 flex items-center">
+                    <img src="foto/user.png" alt="User Foto" class="w-12 h-12 rounded-full border-2" style="border-color: var(--hijau-tua); margin-right: 16px;">
+                    <div>
+                        <p class="font-bold text-lg">20 Pohon</p>
+                        <p class="text-sm">Oleh <span class="italic">Nama Donatur</span></p>
+                        <p class="text-xs text-gray-500">Tanggal</p>
+                    </div>
+                </li>
+            </ul>
+            <button id="showAllHistory" class="mt-6 bg-hijau-muda text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-300" style="background-color: var(--hijau-muda);">Detail Riwayat</button>
+        </div>
+    </div>
+    <div id="popupDetailRiwayat" class="popup hidden">
+        <div class="popup-content bg-white p-4 rounded-lg shadow-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <h2 class="text-lg font-semibold mb-4">Detail Riwayat Donasi</h2>
+            <ul id="detailDonasi" class="list-none space-y-2 overflow-y-auto max-h-80">
+                <!-- Isi detail riwayat donasi akan ditambahkan melalui JavaScript -->
+            </ul>
+            <button id="closePopupDetail" class="mt-4 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors duration-300">Tutup</button>
+        </div>
+    </div>
+
+
+
+
+    <!-- Kumpulan Informasi -->
+    <div id="informasi" class="pt-10 px-4 md:px-16">
+        <div class="container py-12">
+            <h1 class="font-semibold text-2xl md:text-3xl lg:text-4xl text-center mb-10" style="color: var(--hijau-tua);">Kumpulan Informasi</h1>
+            <!-- Kontainer Box Informasi -->
+            <div class="space-y-4">
+                <!-- Box Informasi 1 -->
+                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
+                    style="background-color: var(--putihbg);">
+                    <div class="flex items-center space-x-4">
+                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
+                        <div class="flex-grow">
+                            <p class="text-sm font-semibold break-words">ANANANANANANAkAAAA</p>
+                            <p class="text-xs text-gray-500">Tanggal 1</p>
+                        </div>
+                        <button class="more-button" aria-label="More Options"></button>
+                    </div>
+                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
+                </div>
+                <!-- Box Informasi 2 -->
+                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
+                    style="background-color: var(--putihbg);">
+                    <div class="flex items-center space-x-4">
+                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
+                        <div class="flex-grow">
+                            <p class="text-sm font-semibold break-words">Nama Pengguna</p>
+                            <p class="text-xs text-gray-500">Tanggal 2</p>
+                        </div>
+                        <button class="more-button" aria-label="More Options"></button>
+                    </div>
+                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
+                </div>
+                                <!-- Box Informasi 2 -->
+                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
+                    style="background-color: var(--putihbg);">
+                    <div class="flex items-center space-x-4">
+                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
+                        <div class="flex-grow">
+                            <p class="text-sm font-semibold break-words">Nama Pengguna</p>
+                            <p class="text-xs text-gray-500">Tanggal 2</p>
+                        </div>
+                        <button class="more-button" aria-label="More Options"></button>
+                    </div>
+                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
+                </div>
+                                            <!-- Box Informasi 2 -->
+                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
+                    style="background-color: var(--putihbg);">
+                    <div class="flex items-center space-x-4">
+                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
+                        <div class="flex-grow">
+                            <p class="text-sm font-semibold break-words">Nama Pengguna</p>
+                            <p class="text-xs text-gray-500">Tanggal 2</p>
+                        </div>
+                        <button class="more-button" aria-label="More Options"></button>
+                    </div>
+                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
+                </div>
+                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
+                    style="background-color: var(--putihbg);">
+                    <div class="flex items-center space-x-4">
+                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
+                        <div class="flex-grow">
+                            <p class="text-sm font-semibold break-words">Nama Pengguna</p>
+                            <p class="text-xs text-gray-500">Tanggal 2</p>
+                        </div>
+                        <button class="more-button" aria-label="More Options"></button>
+                    </div>
+                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
+                </div>
+                <div class="relative bg-white rounded-lg border border-gray-200 shadow-md p-4 flex flex-col space-y-2"
+                    style="background-color: var(--putihbg);">
+                    <div class="flex items-center space-x-4">
+                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
+                        <div class="flex-grow">
+                            <p class="text-sm font-semibold break-words">Nama Pengguna</p>
+                            <p class="text-xs text-gray-500">Tanggal 2</p>
+                        </div>
+                        <button class="more-button" aria-label="More Options"></button>
+                    </div>
+                    <p class="text-sm break-words">Pada lokasi mangrove di <span>kota</span>, <span>provinsi</span>, <span>detail</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <button id="hapusBtn" class="text-xs md:text-sm">Hapus Informasi</button>
+    </div>
+
+
+    <script src="admin.js">
+
+    </script>
 </body>
+
 </html>

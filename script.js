@@ -636,54 +636,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /*--------------------------------------------------------------
 # LogOut
 --------------------------------------------------------------*/
-// // Fungsi untuk mengatur cookies
-// function setCookie(cname, cvalue, exdays) {
-//     var d = new Date();
-//     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-//     var expires = "expires="+d.toUTCString();
-//     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-// }
 
-// // Fungsi untuk menghapus cookies
-// function deleteCookie(cname) {
-//     document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-// }
-
-// // Fungsi untuk mendapatkan nilai cookies berdasarkan nama
-// function getCookie(cname) {
-//     var name = cname + "=";
-//     var decodedCookie = decodeURIComponent(document.cookie);
-//     var ca = decodedCookie.split(';');
-//     for(var i = 0; i < ca.length; i++) {
-//         var c = ca[i];
-//         while (c.charAt(0) == ' ') {
-//             c = c.substring(1);
-//         }
-//         if (c.indexOf(name) == 0) {
-//             return c.substring(name.length, c.length);
-//         }
-//     }
-//     return "";
-// }
-
-// // Temukan tombol logout berdasarkan id
-// var logoutButton = document.getElementById('logoutBtn');
-
-// // Tambahkan event listener untuk menangani klik tombol logout
-// logoutButton.addEventListener('click', function() {
-//     // Hapus cookie saat logout
-//     deleteCookie("loginStatus");
-//     // Arahkan pengguna ke halaman login (ganti "halaman-login.html" dengan path yang sesuai)
-//     window.location.href = "halaman-login.html";
-// });
-
-// // Cek apakah pengguna telah login saat halaman dimuat
-// window.onload = function() {
-//     // Periksa cookie "loginStatus"
-//     var loginStatus = getCookie("loginStatus");
-//     // Jika cookie "loginStatus" tidak ditemukan atau memiliki nilai "false"
-//     if (loginStatus !== "true") {
-//         // Arahkan pengguna ke halaman login
-//         window.location.href = "halaman-login.html";
-//     }
-// };
+/*--------------------------------------------------------------
+# Kumpulan Informasi
+--------------------------------------------------------------*/

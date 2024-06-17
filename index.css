@@ -466,12 +466,14 @@ a {
 
 .program-1 img,
 .program-2 img {
-    height: 300px;
     width: 300px;
+    height: 300px;
+    object-fit: cover;
     border-radius: 10px;
     border: 5px solid #78A67C;
     margin-right: 30px;
 }
+
 .program-2 img {
     margin-right: 0px;
 }
@@ -1412,87 +1414,6 @@ a {
     padding: 20px 150px;
 }
 
-/*--------------------------------------------------------------
-# Kumpulan Informasi
---------------------------------------------------------------*/
-.kumpulan-informasi {
-    padding: 30px 200px;
-}
-
-.kumpulan-informasi .container {
-    padding-top: 100px;
-}
-
-.kumpulan-informasi h1 {
-    color: var(--hijau-muda);
-    font-size:3vw;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-
-.container-kumpulan {
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
-    padding: 30px;
-    scroll-behavior: smooth;
-}
-
-/* Sembunyikan scrollbar untuk Webkit browsers (Chrome, Safari) */
-.container-kumpulan::-webkit-scrollbar {
-    display: none;
-}
-
-/* Sembunyikan scrollbar untuk Firefox */
-.container-kumpulan {
-    scrollbar-width: none; /* Firefox */
-}
-
-/* Sembunyikan scrollbar untuk Internet Explorer, Edge */
-.container-kumpulan {
-    -ms-overflow-style: none; /* IE and Edge */
-}
-.box-kumpulan {
-    position: relative; /* Membuat box menjadi posisi relatif */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk memberikan kedalaman */
-    background-color: var(--putihbg);
-    border-radius: 5px;
-    border: solid 1px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    text-align: justify;
-    transition: transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Animasi untuk efek hover dengan transisi yang lebih halus */
-    display: flex;
-    margin-bottom: 10px;
-    flex-direction: column; /* Menentukan arah kolom untuk flexbox */
-    word-wrap: break-word; /* Teks otomatis pindah ke baris baru jika melebihi lebar kontainer */
-    word-break: break-all; /* Memaksa teks untuk pindah ke baris baru jika terlalu panjang */
-}
-.box-kumpulan p,.box-kumpulan .identitas p{
-    font-size:12px ;
-}
-.box-kumpulan img {
-    width: 30px;
-    height: 30px;
-}
-
-.identitas .hapus {
-    position: absolute; /* atau position: fixed; tergantung kebutuhan */
-    right: 0;
-    bottom: -5px;
-    border: none;
-    margin-right: 50px;
-    width: 30px; /* Sesuaikan dengan ukuran gambar */
-    height: 30px; /* Sesuaikan dengan ukuran gambar */
-    background-image: url('foto/delete.png');
-    background-size: cover; /* Sesuaikan jika perlu */
-    background-repeat: no-repeat; /* Agar gambar tidak diulang */
-    background-position: center; /* Menempatkan gambar di tengah */
-    cursor: pointer;
-}
-.identitas .hapus:hover {
-    background-image: url('foto/delete2.png');
-}
-
-
 /* ===========Responsive================*/
 /*laptop */
 @media screen and (max-width: 1357px) {
@@ -1542,11 +1463,6 @@ a {
         width: 250px;
     }
 }
-@media screen and (max-width: 1250px) {
-    .card .card-body .card{
-        width: 300px;
-    }
-    }
 
 @media screen and (max-width: 1025px) {
 
@@ -1786,14 +1702,14 @@ a {
 
 
 
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 768px) {
     .navbar {
-        padding: 0 10px;
+        padding: 0 30px;
         height: 50px;
         justify-content: space-between;
     }
     .navbar .logo img {
-        height: 20px;
+        height: 30px;
     }
 
     .navbar .menu {
