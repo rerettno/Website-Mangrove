@@ -211,57 +211,46 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         }
+
+        
+
     });
     
-    document.addEventListener("DOMContentLoaded", function () {
-        // Event listener untuk tombol "Detail Riwayat"
-        var detailButton = document.getElementById('showAllHistory');
-        var popupDetailRiwayat = document.getElementById('popupDetailRiwayat');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ambil elemen popup riwayat
+        var popupRiwayat = document.getElementById('popupDetailRiwayat');
     
-        if (detailButton && popupDetailRiwayat) {
-            detailButton.addEventListener('click', function () {
-                // Simulasi detail riwayat donasi (dapat disesuaikan dengan data yang sebenarnya)
-                var detailDonasi = [
-                    "50 Pohon oleh Nama Donatur pada Tanggal",
-                    "30 Pohon oleh Nama Donatur pada Tanggal",
-                    "20 Pohon oleh Nama Donatur pada Tanggal"
-                    // Tambahkan detail lainnya sesuai kebutuhan
-                ];
+        // Ambil tombol yang membuka popup riwayat
+        var showPopupBtn = document.getElementById('showAllHistory');
     
-                // Tampilkan popup dengan fungsi showPopup
-                showPopup(detailDonasi);
+        // Ambil tombol untuk menutup popup riwayat
+        var closePopupBtn = document.getElementById('closePopupDetail');
+    
+        // Tambahkan event listener untuk tombol yang membuka popup riwayat
+        if (showPopupBtn) {
+            showPopupBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                popupRiwayat.classList.remove('hidden');
             });
-    
-            // Event listener untuk tombol "Tutup" pada popup Detail Riwayat
-            var closePopupDetailButton = document.getElementById('closePopupDetail');
-            if (closePopupDetailButton) {
-                closePopupDetailButton.addEventListener('click', function () {
-                    if (popupDetailRiwayat) {
-                        popupDetailRiwayat.classList.add('hidden');
-                    }
-                });
-            }
         }
     
-        // Fungsi untuk menampilkan popup dengan detail riwayat donasi
-        function showPopup(detailDonasi) {
-            var detailList = document.getElementById('detailDonasi');
-            if (detailList) {
-                // Kosongkan isi ul detailDonasi
-                detailList.innerHTML = '';
-    
-                // Loop untuk setiap detail donasi dan tambahkan ke ul
-                detailDonasi.forEach(function (detail) {
-                    var li = document.createElement('li');
-                    li.textContent = detail;
-                    detailList.appendChild(li);
-                });
-    
-                // Tampilkan popup
-                if (popupDetailRiwayat) {
-                    popupDetailRiwayat.classList.remove('hidden');
-                }
-            }
+        // Tambahkan event listener untuk tombol yang menutup popup riwayat
+        if (closePopupBtn) {
+            closePopupBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                popupRiwayat.classList.add('hidden');
+            });
         }
+    
+        // Tambahkan event listener untuk menutup popup riwayat saat klik di luar area popup
+        document.addEventListener('click', function(event) {
+            var isClickInsidePopup = popupRiwayat.contains(event.target);
+            var isClickOnPopupButton = event.target.closest('#showAllHistory');
+    
+            // Jika klik dilakukan di luar popup dan bukan pada tombol untuk membuka popup
+            if (!isClickInsidePopup && !isClickOnPopupButton) {
+                popupRiwayat.classList.add('hidden');
+            }
+        });
     });
     
