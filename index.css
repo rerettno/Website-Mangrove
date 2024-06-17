@@ -938,12 +938,15 @@ a {
 }
 
 .blog-post img {
-    width: 250px;
+    width: 200px; /* Lebar maksimum gambar */
     height: 150px;
-    border-radius: 10px;
-    margin-right: 50px;
-    object-fit: cover; /* Mengatur gambar agar sesuai dalam ukuran yang diberikan */
+    border-radius: 10px; /* Sudut lengkungan border */
+    margin-right: 50px; /* Jarak kanan dari elemen lain */
+
+    /* Menambahkan object-fit untuk memastikan gambar sesuai */
+    object-fit: cover;
 }
+
 
 .keterangan {
     display: flex;
