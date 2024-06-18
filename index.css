@@ -668,7 +668,10 @@ a {
 
 /* Gaya untuk pop-up yang di tempat */
 .popup-detail {
-    position: absolute;
+    position: fixed; /* Menggunakan position fixed agar popup selalu berada di tengah layar */
+    top: 50%; /* Posisi di tengah tinggi layar */
+    left: 50%; /* Posisi di tengah lebar layar */
+    transform: translate(-50%, -50%); /* Memindahkan popup ke tengah secara tepat */
     z-index: 9999; /* Tetap di atas elemen lain di dalam konten */
     background-color: white;
     border: 2px solid var(--hijau-tua); /* Border muncul saat hover */
@@ -679,6 +682,7 @@ a {
     overflow-y: auto;
     display: none; /* Sembunyikan secara default */
 }
+
 
 /* Gaya untuk "selengkapnya" */
 .selengkapnya {

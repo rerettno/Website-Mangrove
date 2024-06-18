@@ -1,23 +1,75 @@
-async function fetchInformasi() {
-    try {
-        const response = await fetch('http://localhost:5000/getAllInformasi');
-        const data = await response.json();
+document.addEventListener("DOMContentLoaded", function() {
+    fetchInformasi(); // Panggil fungsi fetchInformasi saat DOM siap
 
-        if (data.status === 200) {
-            const informasiContainer = document.querySelector('.box-container');
-            informasiContainer.innerHTML = ''; // Pastikan kontainer kosong sebelum mengisi
+    // Fungsi untuk mengambil data informasi dari server
+    async function fetchInformasi() {
+        try {
+            const response = await fetch('http://localhost:5000/getAllInformasi');
+            const data = await response.json();
 
-            data.Informasi.forEach(info => {
-                const box = createInformasiBox(info);
-                informasiContainer.appendChild(box);
-            });
-        } else {
-            console.error('Failed to fetch informasi:', data.message);
+            if (data.status === 200) {
+                const informasiContainer = document.querySelector('.box-container');
+                informasiContainer.innerHTML = ''; // Pastikan kontainer kosong sebelum mengisi
+
+                data.Informasi.forEach(info => {
+                    const box = createInformasiBox(info);
+                    informasiContainer.appendChild(box);
+
+                    // Ambil elemen detail di dalam box dan tambahkan tombol "selengkapnya" jika perlu
+                    const detailElement = box.querySelector('.detail');
+                    if (detailElement.scrollHeight > detailElement.clientHeight) {
+                        var selengkapnya = document.createElement('span');
+                        selengkapnya.classList.add('selengkapnya');
+                        selengkapnya.innerText = ' selengkapnya';
+                        detailElement.classList.add('limited');
+                        detailElement.parentNode.insertBefore(selengkapnya, detailElement.nextSibling); // Pindahkan "selengkapnya" ke bawah "detail"
+
+                        selengkapnya.addEventListener('click', function(event) {
+                            openPopup(detailElement.innerText); // Memasukkan teks detail ke popup
+                        });
+                    }
+                });
+            } else {
+                console.error('Failed to fetch informasi:', data.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
         }
-    } catch (error) {
-        console.error('Error:', error);
     }
-}
+
+    // Fungsi untuk membuka popup dengan teks detail
+    function openPopup(text) {
+        const fullDetail = document.querySelector('.full-detail');
+        const popupOverlayDetail = document.querySelector('.popup-overlay-detail');
+        const popupDetail = document.querySelector('.popup-detail');
+
+        fullDetail.innerText = text; // Memasukkan teks detail ke popup
+        popupOverlayDetail.style.display = 'block';
+        popupDetail.style.display = 'block';
+
+        // Menengahkan popup di tengah layar
+        popupDetail.style.top = '50%';
+        popupDetail.style.left = '50%';
+        popupDetail.style.transform = 'translate(-50%, -50%)';
+    }
+
+
+    // Tambahkan event listener ke overlay untuk menutup popup detail
+    const popupOverlayDetail = document.querySelector('.popup-overlay-detail');
+    popupOverlayDetail.addEventListener('click', function(event) {
+        if (event.target === popupOverlayDetail) {
+            popupOverlayDetail.style.display = 'none';
+            document.querySelector('.popup-detail').style.display = 'none';
+        }
+    });
+
+    // Mencegah penutupan popup detail saat mengklik di dalam popup
+    const popupDetail = document.querySelector('.popup-detail');
+    popupDetail.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+});
+
 
 async function validateForm() {
     const nama = document.getElementById('isi-nama').value;
