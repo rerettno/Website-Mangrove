@@ -233,6 +233,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 # Informasi
 --------------------------------------------------------------*/
 //notes, bagian ini hanya animasi informasi
+
 document.addEventListener("DOMContentLoaded", function() {
     // Ambil panah kiri dan kanan
     var leftArrow = document.querySelector(".arrow-left");
@@ -256,52 +257,12 @@ document.addEventListener("DOMContentLoaded", function() {
         boxContainer.scrollLeft += (1 * boxWidth);
     });
 });
-
-//notes, dibagian ini animasi popup detail informasi
-document.addEventListener("DOMContentLoaded", function() {
-    const detailElements = document.querySelectorAll('.detail');
-    const popupOverlayDetail = document.querySelector('.popup-overlay-detail');
-    const popupDetail = document.querySelector('.popup-detail');
-    const fullDetail = document.querySelector('.full-detail');
-
-    detailElements.forEach(function(detail) {
-        if (detail.scrollHeight > detail.clientHeight) {
-            var selengkapnya = document.createElement('span');
-            selengkapnya.classList.add('selengkapnya');
-            selengkapnya.innerText = ' selengkapnya';
-            detail.classList.add('limited');
-            detail.parentNode.insertBefore(selengkapnya, detail.nextSibling); // Pindahkan "selengkapnya" ke bawah "detail"
-
-            selengkapnya.addEventListener('click', function(event) {
-                fullDetail.innerText = detail.innerText;
-                popupOverlayDetail.style.display = 'block';
-                popupDetail.style.display = 'block';
-
-                var rect = detail.getBoundingClientRect();
-                popupDetail.style.top = rect.top + window.scrollY + 'px';
-                popupDetail.style.left = rect.left + window.scrollX + 'px';
-                popupDetail.style.width = detail.clientWidth + 'px';
-            });
-        }
-    });
-
-    // Tambahkan event listener ke overlay untuk menutup popup detail
-    popupOverlayDetail.addEventListener('click', function(event) {
-        if (event.target === popupOverlayDetail) {
-            popupOverlayDetail.style.display = 'none';
-            popupDetail.style.display = 'none';
-        }
-    });
-
-    // Mencegah penutupan popup detail saat mengklik di dalam popup
-    popupDetail.addEventListener('click', function(event) {
-        event.stopPropagation();
-    });
-});
+    
 
 //notes, dibagian ini animasi dan fungski setlah tombol btn-informasi diklik
 document.addEventListener('DOMContentLoaded', function() {
-    //-----proses popup------------
+    //fetchInformasi(); // Panggil fungsi fetchInformasi saat DOM siap
+
     // Ambil elemen-elemen yang diperlukan untuk popup form
     const btnInformasi = document.querySelector('.btn-informasi');
     const popupOverlayForm = document.querySelector('.popup-overlay-form');
@@ -331,48 +292,167 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Menambahkan event listener untuk mengatur perilaku tombol "Kirim"
     if (btnKirim) {
-        btnKirim.addEventListener('click', function(event) {
+        btnKirim.addEventListener('click', async function(event) {
             console.log('Kirim button clicked');  // Debug log
-
+    
             // Panggil fungsi validasi form
             if (!validateForm()) {
                 event.preventDefault();  // Mencegah pengiriman form jika validasi gagal
                 return;
             }
-
-            // Tampilkan popup kirim
-            popupOverlayForm.style.display = 'none';
-            popupInformasi.style.display = 'none';
-            popupOverlayKirim.style.display = 'block';
-            popupKirim.style.display = 'block';
-
-            // Set timeout untuk menampilkan popup terima setelah 2 detik
-            setTimeout(function() {
-                console.log('Showing terima popup');  // Debug log
-
-                popupOverlayKirim.style.display = 'none';
-                popupKirim.style.display = 'none';
-                popupOverlayTerima.style.display = 'block';
-                popupTerima.style.display = 'block';
-
-                // Set timeout untuk menutup popup terima setelah 5 detik
-                setTimeout(function() {
-                    console.log('Closing terima popup');  // Debug log
-
-                    popupOverlayTerima.style.display = 'none';
-                    popupTerima.style.display = 'none';
-                    window.location.href = '#informasi'; // Ganti '#informasi' dengan ID atau URL yang sesuai
-                
-                    // Refresh halaman setelah scroll
+    
+            // Ambil nilai dari form
+            const nama = document.getElementById('isi-nama').value;
+            const provinsi = document.getElementById('isi-provinsi').value;
+            const kota = document.getElementById('isi-kota').value;
+            const detail = document.getElementById('isi-detail').value;
+    
+            const dataInformasi = { nama, provinsi, kota, detail };
+    
+            try {
+                const response = await fetch('http://localhost:5000/createInformasi', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataInformasi)
+                });
+    
+                const result = await response.json();
+    
+                if (result.status === '200') {
+                    // Tampilkan popup kirim
+                    popupOverlayForm.style.display = 'none';
+                    popupInformasi.style.display = 'none';
+                    popupOverlayKirim.style.display = 'block';
+                    popupKirim.style.display = 'block';
+    
+                    // Set timeout untuk menampilkan popup terima setelah 2 detik
                     setTimeout(function() {
-                        window.location.reload(); // Refresh halaman
-                    }, 1000); // Tambahkan sedikit delay untuk memastikan scroll selesai sebelum refresh
-                }, 5000); // Waktu dalam milidetik (5 detik)
-            }, 2000); // Waktu dalam milidetik (2 detik)
+                        console.log('Showing terima popup');  // Debug log
+    
+                        popupOverlayKirim.style.display = 'none';
+                        popupKirim.style.display = 'none';
+                        popupOverlayTerima.style.display = 'block';
+                        popupTerima.style.display = 'block';
+
+                        // Tambahkan informasi baru di depan
+                        const informasiContainer = document.querySelector('.box-container');
+                        const box = createInformasiBox({ ...dataInformasi, createdAt: result.createdAt });
+                        informasiContainer.prepend(box); // Menambahkan elemen di depan container 
+                        
+                        // Set timeout untuk menutup popup terima setelah 5 detik
+                        setTimeout(function() {
+                            console.log('Closing terima popup');  // Debug log
+    
+                            popupOverlayTerima.style.display = 'none';
+                            popupTerima.style.display = 'none';
+                            window.location.href = '#informasi'; // Ganti '#informasi' dengan ID atau URL yang sesuai
+    
+                            // Refresh halaman setelah scroll
+                            setTimeout(function() {
+                                window.location.reload(); // Refresh halaman
+                            }, 1000); // Tambahkan sedikit delay untuk memastikan scroll selesai sebelum refresh
+                        }, 5000); // Waktu dalam milidetik (5 detik)
+                    }, 2000); // Waktu dalam milidetik (2 detik)
+
+
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
         });
     }
 
-    //-----------proses didalam form
+    function createInformasiBox(info) {
+        const box = document.createElement('div');
+        box.className = "box";
+
+        box.innerHTML = `
+            <div class="identitas">
+                <img src="foto/user.png" alt="User Foto">
+                <div class="data-user">
+                    <p class="nama">${info.nama}</p>
+                    <p class="tanggal">${new Date(info.createdAt).toLocaleDateString()}</p>
+                </div>
+            </div>
+            <p class="detail">Pada lokasi mangrove di <span>${info.kota}</span>, <span>${info.provinsi}</span>, <span>${info.detail}</span></p>
+        `;
+
+        return box;
+    }
+
+
+    async function fetchInformasi() {
+        try {
+            const response = await fetch('http://localhost:5000/getAllInformasi');
+            const data = await response.json();
+    
+            if (data.status === 200) {
+                const informasiContainer = document.querySelector('.box-container');
+                informasiContainer.innerHTML = ''; // Pastikan kontainer kosong sebelum mengisi
+    
+                // Urutkan data berdasarkan createdAt yang terbaru
+                const sortedInformasi = data.Informasi.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    
+                sortedInformasi.forEach(info => {
+                    const box = createInformasiBox(info);
+                    informasiContainer.appendChild(box);
+                });
+    
+                addSelengkapnyaEventListeners();
+            } else {
+                console.error('Failed to fetch informasi:', data.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+    
+    function addSelengkapnyaEventListeners() {
+        const detailElements = document.querySelectorAll('.detail');
+        const popupOverlayDetail = document.querySelector('.popup-overlay-detail');
+        const popupDetail = document.querySelector('.popup-detail');
+        const fullDetail = document.querySelector('.full-detail');
+    
+        detailElements.forEach(function(detail) {
+            if (detail.scrollHeight > detail.clientHeight) {
+                var selengkapnya = document.createElement('span');
+                selengkapnya.classList.add('selengkapnya');
+                selengkapnya.innerText = ' selengkapnya';
+                detail.classList.add('limited');
+                detail.parentNode.insertBefore(selengkapnya, detail.nextSibling); // Pindahkan "selengkapnya" ke bawah "detail"
+    
+                selengkapnya.addEventListener('click', function(event) {
+                    fullDetail.innerText = detail.innerText; // Perbaiki ini
+                    popupOverlayDetail.style.display = 'block';
+                    popupDetail.style.display = 'block';
+    
+                    var rect = detail.getBoundingClientRect();
+                    popupDetail.style.top = rect.top + window.scrollY + 'px';
+                    popupDetail.style.left = rect.left + window.scrollX + 'px';
+                    popupDetail.style.width = detail.clientWidth + 'px';
+                });
+            }
+        });
+    
+        // Tambahkan event listener ke overlay untuk menutup popup detail
+        popupOverlayDetail.addEventListener('click', function(event) {
+            if (event.target === popupOverlayDetail) {
+                popupOverlayDetail.style.display = 'none';
+                popupDetail.style.display = 'none';
+            }
+        });
+    
+        // Mencegah penutupan popup detail saat mengklik di dalam popup
+        popupDetail.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    }
+    
+    fetchInformasi();
+    
+
     // Fungsi untuk mengubah tanggal menjadi format huruf
     function getFormattedDate(date) {
         const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
@@ -409,6 +489,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fungsi untuk memeriksa apakah semua kolom sudah diisi
     function validateForm() {
+        
         const inputs = document.querySelectorAll('#popup-form input, #popup-form textarea');
         let isValid = true;
 
@@ -438,19 +519,24 @@ document.addEventListener('DOMContentLoaded', function() {
             warning.style.display = 'inline';
             setTimeout(function() {
                 warning.style.display = 'none';
-            }, 1000); // Menyembunyikan pesan peringatan setelah 2 detik
+            }, 1000); // Menyembunyikan pesan peringatan setelah 1 detik
         } else {
             warning.style.display = 'none';
         }
     }
 
     // Mendaftarkan event listener untuk input nama
-    infoNama.addEventListener('input', checkInputLength);
+    if (infoNama) {
+        infoNama.addEventListener('input', checkInputLength);
+    }
 
     // Memanggil checkInputLength saat halaman dimuat untuk menangani kasus input yang sudah diisi sebelumnya
     checkInputLength();
 
+
+
 });
+
 
 /*--------------------------------------------------------------
 # Blog

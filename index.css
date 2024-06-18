@@ -528,33 +528,43 @@ a {
 .box-container {
     display: flex;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+    -webkit-overflow-scrolling: touch; /* Perilaku geser mulus untuk perangkat sentuh */
     align-items: center; /* Pusatkan elemen secara vertikal */
-    padding: 15px 5px;
-    scroll-behavior: smooth;
+    padding: 15px 5px; /* Atur padding sesuai kebutuhan */
+    scroll-behavior: smooth; /* Geser mulus */
+    position: relative; /* Pastikan kontainer tetap di dalam viewport */
 }
 
-/* Sembunyikan scrollbar untuk Webkit browsers (Chrome, Safari) */
 .box-container::-webkit-scrollbar {
-    display: none;
+    display: none; /* Sembunyikan scrollbar untuk Webkit browsers (Chrome, Safari) */
 }
 
-/* Sembunyikan scrollbar untuk Firefox */
 .box-container {
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none; /* Sembunyikan scrollbar untuk Firefox */
 }
 
-/* Sembunyikan scrollbar untuk Internet Explorer, Edge */
 .box-container {
-    -ms-overflow-style: none; /* IE and Edge */
+    -ms-overflow-style: none; /* Sembunyikan scrollbar untuk Internet Explorer, Edge */
 }
+
+
 
 .arrow-wrapper {
     position: absolute;
-    z-index: 2;
-    width: 3vw;
-    height:3vw;
+    width: 3vw; /* Atur ukuran sesuai kebutuhan */
+    height: 3vw; /* Atur ukuran sesuai kebutuhan */
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
+    z-index: 2; /* Agar panah muncul di atas kontainer */
+}
+
+.arrow-wrapper.left {
+    left: 9vw; /* Sesuaikan posisi kiri panah sesuai kebutuhan */
+}
+
+.arrow-wrapper.right {
+    right: 9vw; /* Sesuaikan posisi kanan panah sesuai kebutuhan */
 }
 
 .arrow-wrapper img {
@@ -562,13 +572,6 @@ a {
     height: 3vw;
 }
 
-.arrow-wrapper.left {
-    left: 9vw;
-}
-
-.arrow-wrapper.right {
-    right: 9vw;
-}
 
 .box {
     position: relative; /* Membuat box menjadi posisi relatif */
@@ -596,7 +599,7 @@ a {
     transform: translateY(-10px);
     box-shadow: 1px 1px 8px var(--hijau-tua); /* Drop shadow */
     background: radial-gradient(ellipse at center, var(--hijau-mudabgt) 15%, var(--putih) 60%, var(--putih) 100%);
-    border: 2px solid var(--hijau-tua); /* Border muncul saat hover */
+    border: 0.18vw solid var(--hijau-tua); /* Border muncul saat hover */
 }
 
 .identitas {
@@ -668,17 +671,13 @@ a {
 
 /* Gaya untuk pop-up yang di tempat */
 .popup-detail {
-    position: fixed; /* Menggunakan position fixed agar popup selalu berada di tengah layar */
-    top: 50%; /* Posisi di tengah tinggi layar */
-    left: 50%; /* Posisi di tengah lebar layar */
-    transform: translate(-50%, -50%); /* Memindahkan popup ke tengah secara tepat */
+    position: absolute;
     z-index: 9999; /* Tetap di atas elemen lain di dalam konten */
     background-color: white;
-    border: 2px solid var(--hijau-tua); /* Border muncul saat hover */
+    border: 0.18vw solid var(--hijau-tua); /* Border muncul saat hover */
     text-align: justify;
-    padding: 20px;
-    border-radius: 10px;
-    min-width: 320px; /* Mengatur lebar menjadi 320px */
+    padding: 1.5vw;
+    border-radius: 0.8vw;
     overflow-y: auto;
     display: none; /* Sembunyikan secara default */
 }
@@ -695,7 +694,7 @@ a {
 
 /* Batasi tinggi komentar dan sembunyikan overflow */
 .detail {
-    max-height: 60px;
+    max-height: 4vw;
     overflow: hidden;
     position: relative;
 }
