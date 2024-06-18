@@ -1118,7 +1118,7 @@ a {
 }
 .popup-pembayaran h1 {
     color: var(--hijau-muda);
-    font-size: 15px;
+    font-size: 1.1vw;
 }
 
 .popup-pembayaran h2 {
@@ -1127,7 +1127,7 @@ a {
 }
 .popup-pembayaran img{
     width: 220px;
-    height: 200px;
+    height: 210px;
     margin: 50px 0;
 }
 .button-container {
@@ -1224,13 +1224,13 @@ a {
 
 .popup-berhasil h1 {
     color: var(--hijau-muda);
-    font-size: 12px;
+    font-size: 1vw;
 }
 .popup-berhasil h1 span {
     color: var(--hitam);
 }
 .popup-berhasil h2,.popup-terima h2 {
-    font-size: 30px;
+    font-size: 2vw;
     color: var(--hitam);
     margin: 20px 0;
 }
@@ -1339,7 +1339,7 @@ a {
 }
 
 .card1 {
-    height: 650px;
+    height: 600px;
     top: -60px;
 }
 .card2 {
@@ -1666,7 +1666,7 @@ a {
     padding: 30px 100px; 
 }
 .card1 {
-    height: 500px;
+    height: 450px;
 }
 .card2 {
     height: 500px;
@@ -1907,7 +1907,7 @@ a {
         grid-gap: 1vw;
     }
     .harga-bundling .bundling {
-        padding: 3px 8px;
+        padding: 3px 6px;
         border: 1px solid var(--hijau-tua);
         border-radius: 2px;
     }
@@ -1932,11 +1932,54 @@ a {
         
     }
 
-    
-
+    .popup-pembayaran{
+        padding: 10px;
+    }
+    .popup-pembayaran img{
+        width: 60px;
+        height: 55px;
+        margin: 10px 0;
+    }
+    .button-container {
+        padding: 0 20px; /* Opsional: Menambahkan padding agar tidak menempel ke tepi container */
+    }
+    .btn-tidak,.btn-iya {
+        padding: 5px 0 ;
+        width: 30px;
+        border-radius: 3px;
+    }
+    .popup-transfer ,.popup-kirim,.popup-berhasil,.popup-terima{
+        padding: 10px;
+        border-radius: 3px;
+    }
     .program h2 {
         padding-bottom:2vw;
     }
+    .popup-transfer h2 ,.popup-kirim h2,.popup-berhasil h2,.popup-terima h2 {
+        margin: 0;
+    }
+    .popup-transfer img,.popup-kirim img{
+        width: 50px;
+        height: 50px;
+        padding: 0;
+    }
+    .popup-berhasil img,.popup-terima img {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+    }
+    .popup-berhasil img{
+        border: 2px solid var(--hijau-muda);
+    }
+    @keyframes slideUpDown {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-10px); /* Atur jarak naik turun */
+        }
+    }
+
     .program-1 img,
     .program-2 img {
         width: 20vw; /* Lebar dalam vw untuk layar kecil (setengah dari ukuran asli) */
@@ -1974,7 +2017,7 @@ a {
         padding: 15px;
     }
     .card1 {
-        height: 200px;
+        height: 180px;
         top: -15px;
     }
     .card2 {
