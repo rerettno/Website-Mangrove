@@ -5,22 +5,10 @@ async function fetchInformasi() {
 
         if (data.status === 200) {
             const informasiContainer = document.querySelector('.box-container');
+            informasiContainer.innerHTML = ''; // Pastikan kontainer kosong sebelum mengisi
 
             data.Informasi.forEach(info => {
-                const box = document.createElement('div');
-                box.className = 'box';
-
-                box.innerHTML = `
-                    <div class="identitas">
-                        <img src="foto/user.png" alt="User Foto">
-                        <div class="data-user">
-                            <p class="nama">${info.nama}</p>
-                            <p class="tanggal">${new Date(info.createdAt).toLocaleDateString()}</p>
-                        </div>
-                    </div>
-                    <p class="detail">Pada lokasi mangrove di <span>${info.kota}</span>, <span>${info.provinsi}</span>, <span>${info.detail}</span></p>
-                `;
-
+                const box = createInformasiBox(info);
                 informasiContainer.appendChild(box);
             });
         } else {
@@ -61,6 +49,11 @@ async function validateForm() {
                 document.querySelector('.popup-overlay-kirim').style.display = 'none';
                 document.querySelector('.popup-overlay-terima').style.display = 'block';
             }, 2000);
+
+            // Tambahkan informasi baru di depan
+            const informasiContainer = document.querySelector('.box-container');
+            const box = createInformasiBox({ ...dataInformasi, createdAt: result.createdAt });
+            informasiContainer.prepend(box); // Menambahkan elemen di depan container
         } else {
             alert('Gagal mengirim informasi: ' + result.message);
         }
@@ -68,6 +61,24 @@ async function validateForm() {
         console.error('Error:', error);
         alert('Terjadi kesalahan saat mengirim informasi');
     }
+}
+
+function createInformasiBox(info) {
+    const box = document.createElement('div');
+    box.className = 'box';
+
+    box.innerHTML = `
+        <div class="identitas">
+            <img src="foto/user.png" alt="User Foto">
+            <div class="data-user">
+                <p class="nama">${info.nama}</p>
+                <p class="tanggal">${new Date(info.createdAt).toLocaleDateString()}</p>
+            </div>
+        </div>
+        <p class="detail">Pada lokasi mangrove di <span>${info.kota}</span>, <span>${info.provinsi}</span>, <span>${info.detail}</span></p>
+    `;
+
+    return box;
 }
 
 function openForm() {

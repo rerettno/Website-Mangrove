@@ -389,12 +389,14 @@ document.addEventListener("DOMContentLoaded", function () {
     
             if (response.ok) {
                 const informasiContainer = document.getElementById('informasiContainer');
+                informasiContainer.innerHTML = ''; // Clear the container
     
                 // Render box informasi
                 data.Informasi.forEach(informasi => {
                     const boxInformasi = document.createElement('div');
                     boxInformasi.classList.add('relative', 'bg-white', 'rounded-lg', 'border', 'border-gray-200', 'shadow-md', 'p-4', 'flex', 'flex-col', 'space-y-2');
                     boxInformasi.style.backgroundColor = 'var(--putihbg)';
+                    boxInformasi.setAttribute('data-informasi-id', informasi.id);
     
                     const headerInformasi = document.createElement('div');
                     headerInformasi.classList.add('flex', 'items-center', 'space-x-4');
@@ -420,6 +422,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     moreButton.setAttribute('aria-label', 'More Options');
                     moreButton.setAttribute('data-informasi-id', informasi.id);
     
+                    moreButton.addEventListener('click', () => showPopup(informasi.id));
+    
                     userInfo.appendChild(namaPengguna);
                     userInfo.appendChild(tanggalInformasi);
     
@@ -434,7 +438,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     boxInformasi.appendChild(headerInformasi);
                     boxInformasi.appendChild(detailInformasi);
     
-                    informasiContainer.appendChild(boxInformasi);
+                    informasiContainer.prepend(boxInformasi); // Add to the beginning
                 });
             } else {
                 console.error('Gagal mengambil data informasi:', data.message);
@@ -442,58 +446,50 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
             console.error('Error:', error);
         }
+    });
     
-        const popupMessage = document.getElementById('popupMessage');
-        const popup = document.getElementById('popup');
-        const hapusBtn = document.getElementById('hapusBtn');
-        const tutupPopupBtn = document.getElementById('tutupPopupBtn');
+    const popupMessage = document.getElementById('popupMessage');
+    const popup = document.getElementById('popup');
+    const hapusBtn = document.getElementById('hapusBtn');
+    let informasiIdToDelete = null;
     
-        if (popupMessage && popup && hapusBtn && tutupPopupBtn) {
-            const showPopup = (informasiId) => {
-                popupMessage.textContent = 'Apakah Anda yakin ingin menghapus informasi ini?';
-                popup.classList.remove('hidden');
+    const showPopup = (informasiId) => {
+        informasiIdToDelete = informasiId;
+        popupMessage.textContent = 'Apakah Anda yakin ingin menghapus informasi ini?';
+        popup.classList.remove('hidden'); // Show the popup
+        popup.style.display = 'block'; // Ensure popup is visible
+    };
     
-                // Tambahkan event listener pada tombol "Hapus Informasi"
-                hapusBtn.addEventListener('click', () => {
-                    hapusInformasi(informasiId);
+    hapusBtn.addEventListener('click', async () => {
+        if (informasiIdToDelete) {
+            try {
+                const response = await fetch('http://localhost:5000/deleteInformasi', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id: informasiIdToDelete })
                 });
-            };
     
-            const hapusInformasi = async (informasiId) => {
-                try {
-                    const response = await fetch('/deleteInformasi', {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ id: informasiId })
-                    });
-    
-                    if (response.ok) {
-                        console.log('Informasi berhasil dihapus');
-                        // Lakukan tindakan lain jika diperlukan, seperti memperbarui tampilan atau menutup popup
-                        popup.classList.add('hidden');
-                    } else {
-                        console.error('Gagal menghapus informasi');
+                if (response.ok) {
+                    console.log('Informasi berhasil dihapus');
+                    const informasiBox = document.querySelector(`[data-informasi-id="${informasiIdToDelete}"]`);
+                    if (informasiBox) {
+                        informasiBox.remove(); // Remove the element from the DOM
                     }
-                } catch (error) {
-                    console.error('Error:', error);
+                    popup.classList.add('hidden'); // Hide the popup
+                    popup.style.display = 'none'; // Ensure popup is hidden
+                } else {
+                    console.error('Gagal menghapus informasi');
                 }
-            };
-    
-            tutupPopupBtn.addEventListener('click', () => {
-                console.log('Tombol Tutup diklik');
-                popup.classList.add('hidden');
-            });
-    
-            const moreButtons = document.querySelectorAll('.more-button');
-            moreButtons.forEach(moreButton => {
-                moreButton.addEventListener('click', () => {
-                    const informasiId = moreButton.getAttribute('data-informasi-id');
-                    showPopup(informasiId);
-                });
-            });
-        } else {
-            console.error('Elemen popupMessage, popup, hapusBtn, atau tutupPopupBtn tidak ditemukan');
+            } catch (error) {
+                console.error('Error:', error);
+            }
         }
     });
+    
+    document.getElementById('tutupPopupBtn').addEventListener('click', () => {
+        popup.classList.add('hidden');
+        popup.style.display = 'none';
+    });
+    
