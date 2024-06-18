@@ -46,46 +46,39 @@
         }
 
         .popup {
-    position: fixed; /* Changed to fixed to always show in viewport */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 9999;
-    display: none; /* Initially hidden */
-}
-
-.popup button {
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    color: var(--hitam);
-    font-size: 12px;
-    font-weight: 500;
-    padding: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.popup button:hover {
-    background-color: #f3f3f3;
-}
-
-.more-button {
-    background-image: url('foto/more.png');
-    background-size: cover;
-    background-position: center;
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
-}
-
-.hidden {
-    display: none; /* Used to hide elements */
-}
+            position: absolute;
+            background-color: white;
+            padding: 5px;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            display: none;
+        }
+        
+        .popup button {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: var(--hitam);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .popup button:hover {
+            background-color: #f3f3f3;
+        }
+        
+        .more-button {
+            background-image: url('foto/more.png');
+            background-size: cover;
+            background-position: center;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
 
         /* Animasi Navbar */
         @keyframes dropFromTop {
@@ -208,28 +201,24 @@
             </ul>
         </div>
     </div>
-    
 
 
-
-    <!-- Kumpulan Informasi -->
+     <!-- Kumpulan Informasi -->
     <div id="informasi" class="pt-10 px-4 md:px-16">
         <div class="container py-12">
-            <h1 class="font-semibold text-2xl md:text-3xl lg:text-4xl text-center mb-10" style="color: var(--hijau-tua);">Kumpulan Informasi</h1>
+            <h1 class="font-semibold text-2xl md:text-3xl lg:text-4xl text-center mb-5" style="color: var(--hijau-tua);">Kumpulan Informasi</h1>
             <!-- Kontainer Box Informasi -->
-            <div id="informasiContainer" class="space-y-4">
+            <div class="space-y-4">
                 <!-- Box Informasi akan dirender di sini -->
             </div>
         </div>
     </div>
 
     <!-- Popup -->
-    <div id="popup" class="popup hidden">
-        <div class="popup-content">
-            <p id="popupMessage"></p>
-            <button id="hapusBtn">Hapus Informasi</button>
-        </div>
+    <div id="popup" class="popup">
+        <button id="hapusBtn" class="text-xs md:text-sm">Hapus Informasi</button>
     </div>
+
 
     <script src="admin.js"></script>
 </body>
