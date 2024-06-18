@@ -1821,4 +1821,8 @@ a {
         height: auto; /* Menjaga rasio aspek */
         
     }
+    .komentar .container{
+        padding: 0px 30px;
+        padding-bottom: 15px;
+    }
 }
