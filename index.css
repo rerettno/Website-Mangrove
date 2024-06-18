@@ -115,7 +115,7 @@ a {
 
 .navbar .menu-icon {
     display: none;
-    font-size: 30px;
+    font-size: 20px;
     color: var(--putih);
     cursor: pointer;
 }
@@ -601,7 +601,7 @@ a {
 
 .identitas {
     display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 1.1vw;
     position: relative; /* Pastikan elemen induk memiliki posisi relatif atau tetap */
 }
 
@@ -637,12 +637,12 @@ a {
 .btn-informasi {
     margin-top: 30px;
     background-color: var(--hijau-muda);
-    padding: 20px 40px;
+    padding: 1.5vw 3vw;
     border: none;
     font-family: 'isi';
     color: var(--putih);
     font-size: 1.1vw;
-    border-radius: 10px;
+    border-radius: 0.8vw;
     font-weight: 600; /* Menambahkan properti font-weight untuk membuat teks semi-bold */
     box-shadow: 1px 1px 2px #474c47; /* Drop shadow */
     cursor: pointer;
@@ -915,7 +915,7 @@ a {
 
 .blog h2 {
     font-size:3vw;
-    padding-bottom: 60px;
+    padding-bottom:3.5vw;
     color: var(--hitam);
 }
 
@@ -1084,7 +1084,7 @@ a {
     font-family: 'isi';
     color: var(--putih);
     font-size: 1.1vw;
-    border-radius: 10px;
+    border-radius: 0.8vw;
     font-weight: 600; /* Menambahkan properti font-weight untuk membuat teks semi-bold */
     box-shadow: 1px 1px 2px #474c47; /* Drop shadow */
     cursor: pointer;
@@ -1328,6 +1328,7 @@ a {
 
 .card .card-header {
     padding: 40px;
+    font-size: 1.3vw;
 }
 
 .card img {
@@ -1829,9 +1830,58 @@ a {
     .program{
         padding: 10px 30px;
     }
+    .program-1,
+.program-2 {
+    margin-top: 1.5vw;
+    margin-bottom: 3vw; /* Jarak antara1 dan 2 */
+    padding: 2.5vw;
+}
     .informasi {
         padding: 10px 30px;
     }
+    .informasi h2 {
+        padding-bottom: 1.5vw;
+    }
+    .box-container {
+        padding: 5px 5px;
+    }
+    .box {
+        position: relative; /* Membuat box menjadi posisi relatif */
+        flex: 0 0 24vw; /* Lebar setiap box */
+        height: 15vw; /* Tinggi setiap box */
+        margin-right: 1vw; /* Jarak antar box, kecuali untuk yang terakhir */
+        padding: 1.8vw;
+    }
+    .identitas img {
+        width: 3vw; /* Tetapkan lebar gambar sebagai 15% dari lebar viewport */
+        height: auto; /* Menjaga rasio aspek */
+        border-radius: 50%;
+        border: 1px solid var(--hijau-tua);
+        margin-right: 5px;
+    }
+    .btn-informasi {
+        margin-top: 10px;
+        background-color: var(--hijau-muda);
+        padding: 1.5vw 2vw;
+    }
+    .blog{
+        padding: 10px 30px;
+    }
+    .blog h2{
+        padding-bottom: 2vw;
+    }
+    .blog-post {
+        padding: 10px ;
+        height: 50px;
+        margin-bottom: 10px;
+        border-radius: 2px;
+    }
+    .blog-post img {
+        width: 80px; /* Lebar maksimum gambar */
+        height: 30px;
+        border-radius: 5px; /* Sudut lengkungan border */
+        margin-right: 10px; /* Jarak kanan dari elemen lain */
+    }    
     .donasi{
         padding: 10px 30px;
     }
@@ -1847,7 +1897,7 @@ a {
     }
     .form-donasi {
         padding: 3.5vw;
-        width: 60vw;
+        width: 50vw;
     }
     .form-donasi h3 {
         font-size: 2vw;
@@ -1862,7 +1912,7 @@ a {
         border-radius: 2px;
     }
     .warning-message {
-        top:-1px;
+        top:-1.5px;
         
     }
     .note {
@@ -1877,6 +1927,11 @@ a {
         margin: 0 0.3vw;
         transform: scale(0.5); /* Memperbesar checkbox */
     }
+    .btn-submit {
+        padding: 1vw 2vw;
+        
+    }
+
     
 }
 /* Media query untuk perangkat dengan lebar maksimum 768px */
@@ -1896,5 +1951,58 @@ a {
 .program-1 .text p,
 .program-2 .text p{
     font-size: 1vw;
+}
+
+.tentang-kami {
+    padding: 30px; /* Max konten */
+    margin: 0px;
+}
+.tentang-kami .container {
+    padding-top: 0px;
+}
+.tentang-kami h2 {
+    padding-bottom: 20px;
+}
+.card .card-judul{
+    border-radius: 10px;
+    padding: 10px 100px;
+}
+.card .card-body .card{   
+    border-radius: 10px;
+    width: 120px;
+    margin-bottom: 20px;
+}
+.card .card-header {
+    padding: 15px;
+}
+.card1 {
+    height: 200px;
+    top: -20px;
+}
+.card2 {
+    height: 200px;
+    bottom: 0px;
+}
+.card3 {
+    height: 180px;
+    bottom: -20px;
+}
+.card4 {
+    height: 200px;
+    bottom: -5px;
+}
+.card5 {
+    height: 180px;
+    top:-10px;
+}
+.card6 {
+    height: 200px;
+    top: -20px;
+}
+.footer .atas {
+    padding: 5px 30px;
+}
+.footer .bawah {
+    padding: 10px 30px;
 }
 }
