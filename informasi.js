@@ -38,7 +38,7 @@ async function validateForm() {
     const detail = document.getElementById('isi-detail').value;
 
     if (!nama || !provinsi || !kota || !detail) {
-        alert('Semua kolom wajib diisi!');
+        event.preventDefault();
         return;
     }
 

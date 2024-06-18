@@ -331,7 +331,7 @@ a {
 }
 .komentar h2 {
     font-size:3vw;
-    padding-bottom: 60px;
+    padding-bottom: 3.5vw;
     color: var(--hitam);
 }
 
@@ -348,12 +348,12 @@ a {
 
 .testimoni .item {
     flex: 0 0 28vw;
-    height: 35vh;    
+    height: 18vw;    
     box-sizing: border-box;
     padding: 2.5vw;
     background: radial-gradient(ellipse at center, var(--hijau-mudabgt) 25%, var(--putih) 60%, var(--putih) 100%);
-    border: 3px solid var(--hijau-tua);
-    border-radius: 20px;
+    border: 0.2vw solid var(--hijau-tua);
+    border-radius: 1.5vw;
     text-align:justify;
     display: flex; /* Tambahkan display flex untuk mengatur konten dalam item */
     flex-direction: column; /* Menentukan arah kolom untuk flexbox */
@@ -367,7 +367,7 @@ a {
     max-width: 50px; /* Maksimal lebar gambar */
     height: auto; /* Menjaga rasio aspek */
     border-radius: 50%; /* Membuat gambar menjadi lingkaran */
-    border: 2px solid var(--hijau-tua); /* Tambahkan border dan warna */
+    border: 0.15vw solid var(--hijau-tua); /* Tambahkan border dan warna */
 }
 
 
@@ -379,7 +379,7 @@ a {
 
 
 .testimoni .item .info {
-    margin-left: 15px;
+    margin-left: 1.1vw;
     text-align: left; /* Pusatkan teks */
 }
 
@@ -392,12 +392,12 @@ a {
     font-weight: 600; /* Menambahkan properti font-weight untuk membuat teks semi-bold */
 }
 .testimoni .item .info .jml-donasi {
-    margin-top: 5px;
+    margin-top: 0.2vw;
     font-size:0.8vw;
 }
 .testimoni .item .info .tanggal {
     color: var(--hijau-tua);
-    margin-top: 5px;
+    margin-top: 0.2vw;
     font-size: 0.8vw; /* Set font size for tanggal */
 }
 /* Hide scrollbar for all webkit browsers */
@@ -429,10 +429,10 @@ a {
     width: 100%;
     height: 1px;
     background-color: var(--hijau-muda);
-    margin-bottom: 20px;
+    margin-bottom: 1.5vw;
 }
 .program .container{
-    padding-top: 50px;
+    padding-top: 3.5vw;
 }
 .program h1 {
     color: var(--hijau-muda);
@@ -441,23 +441,23 @@ a {
 
 .program h2 {
     font-size:3vw;
-    padding-bottom: 60px;
+    padding-bottom:3.5vw;
     color: var(--hitam);
 }
 
 .program-1,
 .program-2 {
-    max-height: 250px;
-    padding: 30px;
+    max-height: 17.36vw;
+    padding: 2vw;
     background-color: var(--hijau-tua);
     display: flex;
     align-items: center;
-    margin-top: 50px;
-    margin-bottom: 100px; /* Jarak antara1 dan 2 */
-    border-radius: 20px;
+    margin-top: 3vw;
+    margin-bottom: 6vw; /* Jarak antara1 dan 2 */
+    border-radius: 1.5vw;
 }
 .program-2 {
-    margin-bottom: 30px; /* Jarak di bawah 2 */
+    margin-bottom: 2vw; /* Jarak di bawah 2 */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -466,12 +466,12 @@ a {
 
 .program-1 img,
 .program-2 img {
-    width: 300px;
-    height: 300px;
+    width: 20vw; /* Lebar dalam vw */
+    height: 20vw; /* Tinggi dalam vw */
     object-fit: cover;
-    border-radius: 10px;
-    border: 5px solid #78A67C;
-    margin-right: 30px;
+    border-radius: 1vw;
+    border: 0.5vw solid #78A67C;
+    margin-right: 2vw;
 }
 
 .program-2 img {
@@ -480,7 +480,7 @@ a {
 .program-1 .text,
 .program-2 .text {
     color: white;
-    margin-right: 30px;
+    margin-right: 2vw;
 }
 .program-1 .text {
     margin-right: 0px;
@@ -499,7 +499,7 @@ a {
 .program-2 .text p{
     font-size: 1vw;
     text-align: justify;
-    margin-bottom: 20px;
+    margin-bottom:1.5vw;
 }
 
 /*--------------------------------------------------------------
@@ -510,7 +510,7 @@ a {
 }
 
 .informasi .container {
-    padding-top: 50px;
+    padding-top: 3vw;
     text-align: center;
 }
 
@@ -521,7 +521,7 @@ a {
 
 .informasi h2 {
     font-size:3vw;
-    padding-bottom: 60px;
+    padding-bottom: 3vw;
     color: var(--hitam);
 }
 
@@ -552,14 +552,14 @@ a {
 .arrow-wrapper {
     position: absolute;
     z-index: 2;
-    width: 40px;
-    height: 40px;
+    width: 3vw;
+    height:3vw;
     cursor: pointer;
 }
 
 .arrow-wrapper img {
-    width: 40px;
-    height: 40px;
+    width: 3vw;
+    height: 3vw;
 }
 
 .arrow-wrapper.left {
@@ -572,13 +572,13 @@ a {
 
 .box {
     position: relative; /* Membuat box menjadi posisi relatif */
-    flex: 0 0 320px; /* Lebar setiap box */
-    height: 200px; /* Tinggi setiap box */
-    margin-right: 20px; /* Jarak antar box, kecuali untuk yang terakhir */
+    flex: 0 0 22vw; /* Lebar setiap box */
+    height: 14vw; /* Tinggi setiap box */
+    margin-right: 1.5vw; /* Jarak antar box, kecuali untuk yang terakhir */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk memberikan kedalaman */
     background-color: var(--putihbg);
-    border-radius: 20px;
-    padding: 25px;
+    border-radius: 1.5vw;
+    padding: 1.8vw;
     text-align: justify;
     transition: transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Animasi untuk efek hover dengan transisi yang lebih halus */
     display: flex;
@@ -772,7 +772,7 @@ a {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 1.1vw;
     text-align: left;
     font-family: 'isi';
 }
@@ -781,16 +781,16 @@ a {
     display: block;
     color: var(--hijau-tua);
     font-weight: 600;
-    margin-bottom: 5px; 
+    margin-bottom: 0.5vw; 
     font-size: 1.1vw;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 0.8vw;
     border: 1px solid var(--hijau-tua);
-    border-radius: 10px;
+    border-radius: 0.8vw;
     font-size: 0.8vw;
     font-family: 'isi';
 }
@@ -803,7 +803,7 @@ a {
 .form-group textarea {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
-    height: 80px;
+    height: 6vw;
 }
 
 
@@ -845,7 +845,7 @@ a {
 .warning{
     display: none;
     color: red;
-    font-size: 10px;
+    font-size: 0.8vw;
     transition: display 2s ease;
 }
 
@@ -877,7 +877,7 @@ a {
     display: none;
     position: relative;
     top:-10px;
-    font-size: 10px;
+    font-size: 0.8vw;
     color: red;
     
 }
@@ -1004,10 +1004,10 @@ a {
 }
 
 .form-donasi {
-    width: 600px;
+    width: 42vw;
     height: fit-content;
     margin: 0 auto; /* Untuk posisi tengah */
-    padding: 50px;
+    padding: 2.8vw;
     background-color: var(--putihbg);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk memberikan kedalaman */
@@ -1018,20 +1018,20 @@ a {
 
 .form-donasi h3 {
     font-size: 2vw;
-    margin-bottom: 30px;
+    margin-bottom: 2vw;
     text-align: center;
     font-weight: 600;
     font-family: 'isi';
     color: var(--hijau-tua);
 }
 .form-donasi p{
-    font-size: 10px;
+    font-size: 0.8vw;
 }
 .harga-bundling {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Dua kolom dengan lebar yang sama */
-    grid-gap: 20px; /* Jarak antar elemen */
-    margin-bottom: 20px;
+    grid-gap: 1.5vw; /* Jarak antar elemen */
+    margin-bottom: 1.5vw;
 }
 
 .harga-bundling .bundling {
@@ -1054,10 +1054,10 @@ a {
     text-align: justify;
     border: 1px solid var(--hijau-tua);
     background-color: var(--hijau-muda);
-    padding: 15px;
-    border-radius: 20px;
+    padding: 1.1vw;
+    border-radius: 1.5vw;
     width: 80%;
-    margin-bottom: 20px;
+    margin-bottom: 1.5vw;
 }
 
 .form-group,.horizontal-group{
@@ -1065,7 +1065,7 @@ a {
 }
 .horizontal-group {
     display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 1.1vw;
 }
 
 .horizontal-group label {
@@ -1073,13 +1073,13 @@ a {
 }
 
 .horizontal-group input[type="checkbox"] {
-    margin: 0 10px;
+    margin: 0 0.8vw;
     transform: scale(1.2); /* Memperbesar checkbox */
 }
 .btn-submit {
     background-color:var(--hijau-muda); /* hijau */
-    padding: 15px 40px;
-    margin: 15px 0;
+    padding: 1.1vw 3vw;
+    margin: 1.1vw 0;
     border: none;
     font-family: 'isi';
     color: var(--putih);
@@ -1705,7 +1705,7 @@ a {
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 426px) {
     .navbar {
         padding: 0 30px;
         height: 50px;
@@ -1823,6 +1823,78 @@ a {
     }
     .komentar .container{
         padding: 0px 30px;
-        padding-bottom: 15px;
+        padding-bottom: 10px;
     }
+
+    .program{
+        padding: 10px 30px;
+    }
+    .informasi {
+        padding: 10px 30px;
+    }
+    .donasi{
+        padding: 10px 30px;
+    }
+    .donasi-header{
+        padding: 5px 20px;
+        margin-bottom: 30px;
+    }
+    .donasi-header .donasi-img {
+        transform: translateY(20px); /* Menurunkan gambar 80px dari posisi aslinya */
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+    }
+    .form-donasi {
+        padding: 3.5vw;
+        width: 60vw;
+    }
+    .form-donasi h3 {
+        font-size: 2vw;
+        margin-bottom: 1vw;
+    }
+    .harga-bundling {
+        grid-gap: 1vw;
+    }
+    .harga-bundling .bundling {
+        padding: 3px 8px;
+        border: 1px solid var(--hijau-tua);
+        border-radius: 2px;
+    }
+    .warning-message {
+        top:-1px;
+        
+    }
+    .note {
+        margin-bottom: 1vw;
+    }
+    .horizontal-group {
+        display: flex;
+        margin-bottom: 0.5vw;
+    }
+    
+    .horizontal-group input[type="checkbox"] {
+        margin: 0 0.3vw;
+        transform: scale(0.5); /* Memperbesar checkbox */
+    }
+    
+}
+/* Media query untuk perangkat dengan lebar maksimum 768px */
+@media (max-width: 768px) {
+    .program h2 {
+        padding-bottom:2vw;
+    }
+    .program-1 img,
+    .program-2 img {
+        width: 20vw; /* Lebar dalam vw untuk layar kecil (setengah dari ukuran asli) */
+        height: 20vw; /* Tinggi dalam vw untuk layar kecil (setengah dari ukuran asli) */
+    }
+    .program-1 .text .judul,
+.program-2 .text .judul{
+    font-size:3vw;
+}
+.program-1 .text p,
+.program-2 .text p{
+    font-size: 1vw;
+}
 }
