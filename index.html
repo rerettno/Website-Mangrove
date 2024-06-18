@@ -84,19 +84,29 @@
                 <img src="foto/program1.png" alt="Informasi 1 Foto">
                 <div class="text">
                     <p class="judul">Penyaluran Bantuan Mangrove</p>
-                    <p class="keterangan">bekerja sama dengan komunitas dalam pelestarian mangrove???.</p>
+                    <p class="keterangan">Berupa penyaluran bantuan bibit mangrove di berbagai daerah di  Indonesia.</p>
                 </div>
             </div>
             <div class="program-2">
                 <div class="text">
                     <p class="judul">Penanaman Bibit Mangrove</p>
-                    <p class="keterangan">Pohon yang sudahterkumpul akan ditanam.</p>
+                    <p class="keterangan">Penanaman massal terhadap bibit mangrove yang telah dikumpulkan dari hasil donasi .</p>
                 </div>
                 <img src="foto/program2.jpg" alt="Informasi 2 Foto">
             </div>
         </div>
     </div>
     
+    <div id="komentar" class="komentar">
+        <div class="container">
+            <h1>Mari Dengarkan</h1>
+            <h2>Apa Kata Mereka ?</h2>
+            <div class="testimoni">
+                <!-- Data Akan muncul disini -->
+                
+            </div>
+        </div>
+    </div>
     <!--Informasi-->
     <div id="informasi" class="informasi" >
         <div class="container">
@@ -105,7 +115,14 @@
             
             <!-- Kontainer Box Informasi -->
             <div class="box-container">
-                
+                <!-- Panah Kiri -->
+                <div class="arrow-wrapper left">
+                    <img src="foto/left.png" class="arrow-left" alt="Left Arrow">
+                </div>
+                <!-- Panah Kanan -->
+                <div class="arrow-wrapper right">
+                    <img src="foto/right.png" class="arrow-right" alt="Right Arrow">
+                </div>
                 
                 <!-- Box Informasi akan diisi oleh JavaScript -->
             </div>
@@ -226,11 +243,12 @@
             <h3>Donasi Cepat</h3>
     
             <div class="harga-bundling">
-                <button class="bundling" data-value="1">1 Pohon = Rp 7.000,00</button>
-                <button class="bundling" data-value="5">5 Pohon = Rp 30.000,00</button>
-                <button class="bundling" data-value="10">10 Pohon = Rp 50.000,00</button>
-                <button class="bundling" data-value="50">50 Pohon = Rp 300.000,00</button>
+                <button class="bundling" data-value="1" data-harga="7000">1 Pohon = Rp 7.000,00</button>
+                <button class="bundling" data-value="5" data-harga="30000">5 Pohon = Rp 30.000,00</button>
+                <button class="bundling" data-value="10" data-harga="50000">10 Pohon = Rp 50.000,00</button>
+                <button class="bundling" data-value="50" data-harga="300000">50 Pohon = Rp 300.000,00</button>
             </div>
+            
             <div class="warning-message">Silakan pilih salah satu bundling sebelum melanjutkan.</div>
     
             <p class="note">Donasi yang Anda berikan sudah termasuk dari 5% potongan untuk biaya operasional dan pengembangan dari Peduli Mangrove.</p>
@@ -393,6 +411,5 @@
 
     <script src="script.js"></script>
     <script src="informasi.js"></script>
-    <script src="donasi.js"></script>
 </body>
 </html>
