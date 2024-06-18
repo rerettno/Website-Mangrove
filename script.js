@@ -479,6 +479,7 @@ document.addEventListener('DOMContentLoaded', function() {
             warning.style.display = 'none';
         }
     }
+
     // Mendaftarkan event listener untuk input nama
     dnsNama.addEventListener('input', function() {
         checkInputLength(dnsNama, warningNama);
@@ -528,19 +529,21 @@ document.addEventListener('DOMContentLoaded', function() {
         popupPembayaran.style.display = 'none';
     });
 
-
     let selectedValue = null;
     btnIya.addEventListener('click', function() {
+        const selectedButton = document.querySelector('.bundling.active');
+        selectedValue = selectedButton.getAttribute('data-value');
+        const uangDonasi = selectedButton.getAttribute('data-harga');
         const nama = document.getElementById('dns-nama').value;
         const pesan = document.getElementById('dns-komentar').value;
 
-            // Kirim data ke backend dengan fetch
+        // Kirim data ke backend dengan fetch
         fetch('http://localhost:5000/createDonate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: `jumlah=${selectedValue}&nama=${nama}&pesan=${pesan}`
+            body: `jumlah=${selectedValue}&uang_donasi=${uangDonasi}&nama=${nama}&pesan=${pesan}`
         })
         .then(response => response.json())
         .then(data => {
@@ -574,9 +577,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Terjadi kesalahan:', error));
     });
 
-    
-
-
     function validateInputs() {
         const inputs = document.querySelectorAll('#popup-form-donasi input, #popup-form-donasi textarea');
         let isValid = true;
@@ -596,12 +596,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return isValid;
     }
 
-
-
     function validateBundling() {
         const bundlingButtons = document.querySelectorAll('.bundling');
         let bundlingSelected = false;
-    
+
         bundlingButtons.forEach(button => {
             if (button.classList.contains('active')) {
                 bundlingSelected = true;
@@ -609,7 +607,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 selectedValue = button.getAttribute('data-value');
             }
         });
-    
+
         if (!bundlingSelected) {
             warningMessage.classList.add('active');
             // Hapus pesan peringatan setelah 2 detik (2000 milidetik)
@@ -619,12 +617,12 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             warningMessage.classList.remove('active');
         }
-    
+
         return bundlingSelected;
     }
-    
+
     const buttons = document.querySelectorAll('.harga-bundling .bundling');
-    
+
     buttons.forEach(button => {
         button.addEventListener('click', function() {
             buttons.forEach(btn => btn.classList.remove('active'));
@@ -632,8 +630,9 @@ document.addEventListener('DOMContentLoaded', function() {
             warningMessage.classList.remove('active');
         });
     });
-    
+
 });
+
 
 
 
