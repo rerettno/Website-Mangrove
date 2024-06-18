@@ -1933,9 +1933,7 @@ a {
     }
 
     
-}
-/* Media query untuk perangkat dengan lebar maksimum 768px */
-@media (max-width: 768px) {
+
     .program h2 {
         padding-bottom:2vw;
     }
@@ -1945,64 +1943,64 @@ a {
         height: 20vw; /* Tinggi dalam vw untuk layar kecil (setengah dari ukuran asli) */
     }
     .program-1 .text .judul,
-.program-2 .text .judul{
-    font-size:3vw;
-}
-.program-1 .text p,
-.program-2 .text p{
-    font-size: 1vw;
-}
+    .program-2 .text .judul{
+        font-size:3vw;
+    }
+    .program-1 .text p,
+    .program-2 .text p{
+        font-size: 1vw;
+    }
 
-.tentang-kami {
-    padding: 30px; /* Max konten */
-    margin: 0px;
-}
-.tentang-kami .container {
-    padding-top: 0px;
-}
-.tentang-kami h2 {
-    padding-bottom: 20px;
-}
-.card .card-judul{
-    border-radius: 10px;
-    padding: 10px 100px;
-}
-.card .card-body .card{   
-    border-radius: 10px;
-    width: 120px;
-    margin-bottom: 20px;
-}
-.card .card-header {
-    padding: 15px;
-}
-.card1 {
-    height: 200px;
-    top: -20px;
-}
-.card2 {
-    height: 200px;
-    bottom: 0px;
-}
-.card3 {
-    height: 180px;
-    bottom: -20px;
-}
-.card4 {
-    height: 200px;
-    bottom: -5px;
-}
-.card5 {
-    height: 180px;
-    top:-10px;
-}
-.card6 {
-    height: 200px;
-    top: -20px;
-}
-.footer .atas {
-    padding: 5px 30px;
-}
-.footer .bawah {
-    padding: 10px 30px;
-}
+    .tentang-kami {
+        padding: 30px; /* Max konten */
+        margin: 0px;
+    }
+    .tentang-kami .container {
+        padding-top: 0px;
+    }
+    .tentang-kami h2 {
+        padding-bottom: 20px;
+    }
+    .card .card-judul{
+        border-radius: 10px;
+        padding: 10px 100px;
+    }
+    .card .card-body .card{   
+        border-radius: 10px;
+        width: 120px;
+        margin-bottom: 20px;
+    }
+    .card .card-header {
+        padding: 15px;
+    }
+    .card1 {
+        height: 200px;
+        top: -15px;
+    }
+    .card2 {
+        height: 200px;
+        bottom: 0px;
+    }
+    .card3 {
+        height: 180px;
+        bottom: -20px;
+    }
+    .card4 {
+        height: 200px;
+        bottom: 0px;
+    }
+    .card5 {
+        height: 180px;
+        top:-15px;
+    }
+    .card6 {
+        height: 200px;
+        top: -15px;
+    }
+    .footer .atas {
+        padding: 5px 30px;
+    }
+    .footer .bawah {
+        padding: 10px 30px;
+    }
 }

@@ -291,6 +291,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Mengatur nilai dari database
                 totalPohon.textContent = data.donate.reduce((acc, curr) => acc + parseInt(curr.jumlah), 0).toString();
                 totalRelawan.textContent = data.donate.length.toString();
+                // Urutkan data donasi berdasarkan createdAt secara descending
+                data.donate.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
                 // Render daftar donasi (maksimal 3)
                 data.donate.slice(0, 3).forEach(donate => {
