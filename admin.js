@@ -384,114 +384,93 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    document.addEventListener('DOMContentLoaded', async () => {
+    document.addEventListener('DOMContentLoaded', async function () {
         try {
             const response = await fetch('http://localhost:5000/getAllInformasi');
             const data = await response.json();
+            const informasiContainer = document.getElementById('informasi');
     
-            if (response.ok) {
-                const informasiContainer = document.getElementById('informasiContainer');
-                informasiContainer.innerHTML = ''; // Clear the container
+            // Mengisi konten informasi
+            data.Informasi.forEach(info => {
+                const infoBox = document.createElement('div');
+                infoBox.classList.add('relative', 'bg-white', 'rounded-lg', 'border', 'border-gray-200', 'shadow-md', 'p-4', 'flex', 'flex-col', 'space-y-2');
+                infoBox.style.backgroundColor = 'var(--putihbg)';
     
-                // Render box informasi
-                data.Informasi.forEach(informasi => {
-                    const boxInformasi = document.createElement('div');
-                    boxInformasi.classList.add('relative', 'bg-white', 'rounded-lg', 'border', 'border-gray-200', 'shadow-md', 'p-4', 'flex', 'flex-col', 'space-y-2');
-                    boxInformasi.style.backgroundColor = 'var(--putihbg)';
-                    boxInformasi.setAttribute('data-informasi-id', informasi.id);
+                infoBox.innerHTML = `
+                    <div class="flex items-center space-x-4">
+                        <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
+                        <div class="flex-grow">
+                            <p class="text-sm font-semibold break-words">${info.nama}</p>
+                            <p class="text-xs text-gray-500">${info.createdAt}</p>
+                        </div>
+                        <button class="more-button" aria-label="More Options"></button>
+                    </div>
+                    <p class="text-sm break-words">Pada lokasi mangrove di <span>${info.kota}</span>, <span>${info.provinsi}</span>, <span>${info.detail}</span></p>
+                `;
     
-                    const headerInformasi = document.createElement('div');
-                    headerInformasi.classList.add('flex', 'items-center', 'space-x-4');
+                informasiContainer.appendChild(infoBox);
     
-                    const userFoto = document.createElement('img');
-                    userFoto.src = 'foto/user.png';
-                    userFoto.alt = 'User Foto';
-                    userFoto.classList.add('w-8', 'h-8');
+                // Menambahkan popup untuk setiap infoBox
+                const popup = document.createElement('div');
+                popup.classList.add('popup');
+                popup.innerHTML = `
+                    <button id="hapusBtn" class="text-xs md:text-sm">Hapus Informasi</button>
+                `;
+                infoBox.appendChild(popup);
     
-                    const userInfo = document.createElement('div');
-                    userInfo.classList.add('flex-grow');
-    
-                    const namaPengguna = document.createElement('p');
-                    namaPengguna.classList.add('text-sm', 'font-semibold', 'break-words');
-                    namaPengguna.textContent = informasi.nama;
-    
-                    const tanggalInformasi = document.createElement('p');
-                    tanggalInformasi.classList.add('text-xs', 'text-gray-500');
-                    tanggalInformasi.textContent = new Date(informasi.createdAt).toLocaleDateString();
-    
-                    const moreButton = document.createElement('button');
-                    moreButton.classList.add('more-button');
-                    moreButton.setAttribute('aria-label', 'More Options');
-                    moreButton.setAttribute('data-informasi-id', informasi.id);
-    
-                    moreButton.addEventListener('click', () => showPopup(informasi.id));
-    
-                    userInfo.appendChild(namaPengguna);
-                    userInfo.appendChild(tanggalInformasi);
-    
-                    headerInformasi.appendChild(userFoto);
-                    headerInformasi.appendChild(userInfo);
-                    headerInformasi.appendChild(moreButton);
-    
-                    const detailInformasi = document.createElement('p');
-                    detailInformasi.classList.add('text-sm', 'break-words');
-                    detailInformasi.innerHTML = `Pada lokasi mangrove di <span>${informasi.kota}</span>, <span>${informasi.provinsi}</span>, <span>${informasi.detail}</span>`;
-    
-                    boxInformasi.appendChild(headerInformasi);
-                    boxInformasi.appendChild(detailInformasi);
-    
-                    informasiContainer.prepend(boxInformasi); // Add to the beginning
-                });
-            } else {
-                console.error('Gagal mengambil data informasi:', data.message);
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    });
-    
-    const popupMessage = document.getElementById('popupMessage');
-    const popup = document.getElementById('popup');
-    const hapusBtn = document.getElementById('hapusBtn');
-    let informasiIdToDelete = null;
-    
-    const showPopup = (informasiId) => {
-        informasiIdToDelete = informasiId;
-        popupMessage.textContent = 'Apakah Anda yakin ingin menghapus informasi ini?';
-        popup.classList.remove('hidden'); // Show the popup
-        popup.style.display = 'block'; // Ensure popup is visible
-    };
-    
-    hapusBtn.addEventListener('click', async () => {
-        if (informasiIdToDelete) {
-            try {
-                const response = await fetch('http://localhost:5000/deleteInformasi', {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ id: informasiIdToDelete })
+                // Event listener untuk tombol "More Options"
+                const moreButton = infoBox.querySelector('.more-button');
+                moreButton.addEventListener('click', function (event) {
+                    event.stopPropagation(); // Mencegah event bubbling
+                    
+                    // Toggle untuk menampilkan atau menyembunyikan popup
+                    const isVisible = popup.style.display === 'block';
+                    closeAllPopups(); // Sembunyikan semua popup sebelum menampilkan yang saat ini diklik
+                    popup.style.display = isVisible ? 'none' : 'block';
+                    popup.style.left = `${moreButton.offsetLeft}px`;
+                    popup.style.top = `${moreButton.offsetTop + moreButton.offsetHeight}px`;
                 });
     
-                if (response.ok) {
-                    console.log('Informasi berhasil dihapus');
-                    const informasiBox = document.querySelector(`[data-informasi-id="${informasiIdToDelete}"]`);
-                    if (informasiBox) {
-                        informasiBox.remove(); // Remove the element from the DOM
+                // Event listener untuk tombol "Hapus Informasi" di popup
+                const closeButton = popup.querySelector('#hapusBtn');
+                closeButton.addEventListener('click', async function () {
+                    try {
+                        // Ambil ID informasi yang ingin dihapus dari 'info'
+                        const idToDelete = info.id; // Sesuaikan dengan cara Anda mengambil ID dari data
+    
+                        // Kirim permintaan DELETE ke server
+                        const deleteResponse = await fetch('http://localhost:5000/deleteInformasi', {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ id: idToDelete }),
+                        });
+    
+                        const deleteData = await deleteResponse.json();
+    
+                        if (deleteResponse.ok) {
+                            // Hapus infoBox dari antarmuka pengguna jika penghapusan berhasil
+                            informasiContainer.removeChild(infoBox);
+                            alert(deleteData.message); // Tampilkan pesan sukses dalam alert
+                        } else {
+                            console.error(deleteData.message); // Optional: Handle error message
+                            alert(deleteData.message); // Tampilkan pesan error dalam alert
+                        }
+                    } catch (error) {
+                        console.error('Gagal menghapus informasi:', error);
+                        alert('Gagal menghapus informasi'); // Tampilkan pesan error dalam alert
                     }
-                    popup.classList.add('hidden'); // Hide the popup
-                    popup.style.display = 'none'; // Ensure popup is hidden
-                } else {
-                    console.error('Gagal menghapus informasi');
+                });
+    
+                function closeAllPopups() {
+                    const allPopups = document.querySelectorAll('.popup');
+                    allPopups.forEach(popup => popup.style.display = 'none');
                 }
-            } catch (error) {
-                console.error('Error:', error);
-            }
+    
+            });
+    
+        } catch (error) {
+            console.error('Gagal mengambil data informasi:', error);
         }
-    });
-    
-    document.getElementById('tutupPopupBtn').addEventListener('click', () => {
-        popup.classList.add('hidden');
-        popup.style.display = 'none';
-    });
-    
+    });  
