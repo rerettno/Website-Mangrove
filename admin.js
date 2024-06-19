@@ -393,7 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Mengisi konten informasi
             data.Informasi.forEach(info => {
                 const infoBox = document.createElement('div');
-                infoBox.classList.add('relative', 'bg-white', 'rounded-lg', 'border', 'border-gray-200', 'shadow-md', 'p-4', 'flex', 'flex-col', 'space-y-2');
+                infoBox.classList.add('relative', 'bg-white', 'rounded-lg', 'border', 'border-gray-200', 'shadow-md', 'p-4', 'flex', 'flex-col', 'space-y-9');
                 infoBox.style.backgroundColor = 'var(--putihbg)';
     
                 infoBox.innerHTML = `

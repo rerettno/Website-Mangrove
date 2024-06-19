@@ -722,7 +722,7 @@ a {
     width: 800px;
     height: 600px;
     background: linear-gradient(to right, var(--putihbg) 50%, var(--hijau-mudabgt) 50%); /* gradient horizontal */
-    border-radius: 10px;
+    border-radius:0.8vw;
     overflow: hidden;
     display: none;    
     overflow-y: auto;
@@ -835,7 +835,7 @@ a {
     height: fit-content;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk memberikan kedalaman */
     background-color: var(--putihbg);
-    border-radius: 20px;
+    border-radius: 1.5vw;
     padding: 30px;
     text-align: justify;
     display: flex; /* Menggunakan flexbox */
@@ -1866,6 +1866,40 @@ a {
         margin-top: 10px;
         background-color: var(--hijau-muda);
         padding: 1.5vw 2vw;
+    }
+    .popup-informasi{
+        width: 200px;
+        height:150px ;
+        padding: 5px;
+    }
+    .popup-informasi h2 {
+        padding-top: 5px;
+    }
+    .popup-content {
+        margin-top: 10px ;
+    }
+    .popup-left, .popup-right {
+        padding: 5px;
+    }
+    .popup-close {
+        top: 1px;
+        right: 10px;
+        font-size: 10px;
+    }
+    .btn-kirim {
+        padding: 5px 15px;
+        border-radius: 3px;
+    }
+    .preview {
+        max-width: 160px;
+        padding: 10px;
+        
+    }
+    .form-group {
+        margin-bottom: 0.1vw;
+    }
+    .form-group label {
+        margin-bottom: 0vw; 
     }
     .blog{
         padding: 10px 30px;
