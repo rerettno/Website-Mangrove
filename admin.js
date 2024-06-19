@@ -322,7 +322,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const tanggalDonasi = document.createElement('p');
                     tanggalDonasi.classList.add('text-xs', 'text-gray-500');
-                    tanggalDonasi.textContent = new Date(donate.createdAt).toLocaleDateString();
+                    tanggalDonasi.textContent = new Date(donate.createdAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
 
                     div.appendChild(pohonDonasi);
                     div.appendChild(namaDonatur);
@@ -405,7 +406,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <img src="foto/user.png" alt="User Foto" class="w-8 h-8">
                         <div class="flex-grow">
                             <p class="text-sm font-semibold break-words">${info.nama}</p>
-                            <p class="text-xs text-gray-500">${info.createdAt}</p>
+                            <p class="text-xs text-gray-500">${new Date(info.createdAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                         </div>
                         <button class="more-button" aria-label="More Options"></button>
                     </div>
