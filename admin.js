@@ -262,10 +262,13 @@ document.addEventListener("DOMContentLoaded", function () {
             if (response.ok) {
                 const totalPohon = document.getElementById('totalPohon');
                 const totalRelawan = document.getElementById('totalRelawan');
+                const totalDana=document.getElementById('totalDana');
 
                 // Mengatur nilai dari database
                 totalPohon.textContent = data.donate.reduce((acc, curr) => acc + parseInt(curr.jumlah), 0).toString();
+                totalDana.textContent = data.donate.reduce((acc, curr) => acc + parseInt(curr.uang_donasi), 0).toString();
                 totalRelawan.textContent = data.donate.length.toString();
+
             } else {
                 console.error('Gagal mengambil data donasi:', data.message);
             }
@@ -273,6 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Error:', error);
         }
     });
+
 
     document.addEventListener('DOMContentLoaded', async () => {
         try {
