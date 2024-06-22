@@ -2,6 +2,7 @@
 # Nvbar
 --------------------------------------------------------------*/
 //notes,dibagian ini hanya membuat animasi untuk navbar
+const uri = 'localhost'
 
 document.addEventListener("DOMContentLoaded", function() {
     // Animasi saat buka website, dia turun dari atas
@@ -96,7 +97,7 @@ btnDonasi.addEventListener('mouseleave', function() {
 --------------------------------------------------------------*/
 document.addEventListener('DOMContentLoaded', async () => {
         try {
-            const response = await fetch('http://localhost:5000/getAllDonate');
+            const response = await fetch('http://${uri}/getAllDonate');
             const data = await response.json();
             
             if (response.ok) {
@@ -122,7 +123,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 //js fitur menampilkan pesan dari donasi
     document.addEventListener('DOMContentLoaded', function() {
-        fetch('http://localhost:5000/getAllDonate')
+        fetch('http://${uri}/getAllDonate')
             .then(response => response.json())
             .then(data => {
                 if (data.status === 200) {
@@ -310,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const dataInformasi = { nama, provinsi, kota, detail };
     
             try {
-                const response = await fetch('http://localhost:5000/createInformasi', {
+                const response = await fetch('http://${uri}/createInformasi', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -385,7 +386,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function fetchInformasi() {
         try {
-            const response = await fetch('http://localhost:5000/getAllInformasi');
+            const response = await fetch('http://${uri}/getAllInformasi');
             const data = await response.json();
     
             if (data.status === 200) {
@@ -624,7 +625,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const pesan = document.getElementById('dns-komentar').value;
 
         // Kirim data ke backend dengan fetch
-        fetch('http://localhost:5000/createDonate', {
+        fetch('http://${uri}/createDonate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
