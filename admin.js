@@ -1,3 +1,4 @@
+const uri = localhost
 document.addEventListener("DOMContentLoaded", function () {
         const form = document.querySelector("#loginForm");
         const eField = form.querySelector(".email"),
@@ -55,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!eField.classList.contains("error") && !pField.classList.contains("error")) {
                 try {
-                    const response = await fetch('http://localhost:5000/loginAdmin', {
+                    const response = await fetch('http://${uri}/loginAdmin', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -256,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     document.addEventListener('DOMContentLoaded', async () => {
         try {
-            const response = await fetch('http://localhost:5000/getAllDonate');
+            const response = await fetch('http://${uri}/getAllDonate');
             const data = await response.json();
 
             if (response.ok) {
@@ -280,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener('DOMContentLoaded', async () => {
         try {
-            const response = await fetch('http://localhost:5000/getAllDonate');
+            const response = await fetch('http://${uri}/getAllDonate');
             const data = await response.json();
 
             if (response.ok) {
@@ -391,7 +392,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener('DOMContentLoaded', async function () {
         try {
-            const response = await fetch('http://localhost:5000/getAllInformasi');
+            const response = await fetch('http://${uri}/getAllInformasi');
             const data = await response.json();
             const informasiContainer = document.getElementById('informasi');
     
@@ -444,7 +445,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const idToDelete = info.id; // Sesuaikan dengan cara Anda mengambil ID dari data
     
                         // Kirim permintaan DELETE ke server
-                        const deleteResponse = await fetch('http://localhost:5000/deleteInformasi', {
+                        const deleteResponse = await fetch('http://${uri}/deleteInformasi', {
                             method: 'DELETE',
                             headers: {
                                 'Content-Type': 'application/json',
