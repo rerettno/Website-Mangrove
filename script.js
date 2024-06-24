@@ -234,29 +234,29 @@ document.addEventListener('DOMContentLoaded', async () => {
 --------------------------------------------------------------*/
 //notes, bagian ini hanya animasi informasi
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Ambil panah kiri dan kanan
-    var leftArrow = document.querySelector(".arrow-left");
-    var rightArrow = document.querySelector(".arrow-right");
+// document.addEventListener("DOMContentLoaded", function() {
+//     // Ambil panah kiri dan kanan
+//     var leftArrow = document.querySelector(".arrow-left");
+//     var rightArrow = document.querySelector(".arrow-right");
 
-    // Ambil kontainer box informasi
-    var boxContainer = document.querySelector(".box-container");
+//     // Ambil kontainer box informasi
+//     var boxContainer = document.querySelector(".box-container");
 
-    // Hitung lebar satu box (termasuk margin)
-    var boxWidth = document.querySelector(".box").offsetWidth;
+//     // Hitung lebar satu box (termasuk margin)
+//     var boxWidth = document.querySelector(".box");
 
-    // Tambahkan event listener untuk panah kiri
-    leftArrow.addEventListener("click", function() {
-        // Geser kontainer ke kiri sebesar tiga kali lebar satu box
-        boxContainer.scrollLeft -= (1 * boxWidth);
-    });
+//     // Tambahkan event listener untuk panah kiri
+//     leftArrow.addEventListener("click", function() {
+//         // Geser kontainer ke kiri sebesar tiga kali lebar satu box
+//         boxContainer.scrollLeft -= (1 * boxWidth);
+//     });
 
-    // Tambahkan event listener untuk panah kanan
-    rightArrow.addEventListener("click", function() {
-        // Geser kontainer ke kanan sebesar tiga kali lebar satu box
-        boxContainer.scrollLeft += (1 * boxWidth);
-    });
-});
+//     // Tambahkan event listener untuk panah kanan
+//     rightArrow.addEventListener("click", function() {
+//         // Geser kontainer ke kanan sebesar tiga kali lebar satu box
+//         boxContainer.scrollLeft += (1 * boxWidth);
+//     });
+// });
     
 
 //notes, dibagian ini animasi dan fungski setlah tombol btn-informasi diklik

@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Tambahkan event listener untuk menangani klik tombol logout
             logoutButton.addEventListener('click', function () {
                 // Arahkan pengguna ke halaman login (ganti "halaman-login.html" dengan path yang sesuai)
-                window.location.href = "login.html";
+                window.location.href = "../mangroveLogin/login.html";
             });
         }
     
